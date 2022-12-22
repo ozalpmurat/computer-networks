@@ -14,7 +14,7 @@ Aşağıdaki komut satırını kullanarak belgeyi indirebilirsiniz, [**git bash*
 ```bash
  git clone https://github.com/ikhalilatteib/computer-networks.git
 ```
-> Bu bölüm yalnızca katkıda bulunmak isteyenleri ilgilendirir, isteyenler için belge pdf formatında mevcuttur.
+> Bu bölüm yalnızca katkıda bulunmak isteyenleri ilgilendirir, isteyenler için belge pdf formatında mevcuttur. Buradan ulaşabilirsiniz [**0BMproje.pdf**](https://github.com/ikhalilatteib/computer-networks/blob/1.0.0/0BMproje.pdf)
 
 ### Yeni bir Branch oluşturun
 İndirme işlemini tamamladıktan sonra, klasöre girin ve aşağıdaki komut satırlarını takip ederek yeni bir branch oluşturun.
