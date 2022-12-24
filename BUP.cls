@@ -25,7 +25,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\addto\captionsturkish{\renewcommand\contentsname{IÇINDEKILER}}
+\addto\captionsturkish{\renewcommand\contentsname{İÇİNDEKİLER}}
 \RequirePackage{eso-pic}
 \RequirePackage{color}
 \AddToShipoutPicture*{%
