@@ -1,17 +1,18 @@
-name: Compile LaTeX document
-
+name: 'Build LaTex Document'
 on:
   push:
-    branches:
-      - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Compile LaTeX document
-        uses: vinay0410/tectonic-action@v1.1.2
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: wtfjoke/setup-tectonic@v2
+      - name: Run Tectonic
+        run: tectonic 0BMproje.tex
+      - name: Upload pdf
+        uses: actions/upload-artifact@v3
         with:
-          tex_path: 0BMproje.tex
-          push: yes
+          name: main
+          path: main.pdf
