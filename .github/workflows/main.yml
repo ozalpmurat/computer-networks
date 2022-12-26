@@ -11,14 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install LaTeX
-        uses: yegor256/latexmk-action@0.7.1
+        uses: blang/latex-action@v1
         with:
+          # The space-separated list of LaTeX packages to install first
           packages: biber
       - name: Compile LaTeX document
-        uses: yegor256/latexmk-action@0.7.1
+        uses: blang/latex-docker@v2.0.0
         with:
-          path: .
-          opts: -f -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
+          # The root LaTeX file to be compiled
+          root_file: 0BMproje.tex
+          # The working directory for the latex compiler to be invoked
+          working_directory: mon_dossier
+          # LaTeX engine to be used
+          compiler: xelatex
+          # Extra arguments to be passed to the latex compiler
+          args: -f -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
