@@ -15,3 +15,7 @@ jobs:
         with:
          name: 0BMproje.pdf
          path: 0BMproje.pdf
+         commit_message: pdf derlendi
+         branch: master
+         repository: computer-networks
+         owner: ikhalilatteib
