@@ -10,12 +10,12 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: 0BMproje.tex
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+      - name: Upload PDF
+        uses: actions/upload-file@v2
         with:
-         name: 0BMproje.pdf
-         path: 0BMproje.pdf
-         commit_message: pdf derlendi
-         branch: master
-         repository: computer-networks
-         owner: ikhalilatteib
+          name: 0BMproje.pdf
+          path: 0BMproje.pdf
+          commit_message: pdf derlendi
+          branch: master
+          repository: computer-networks
+          owner: ikhalilatteib
