@@ -11,17 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install LaTeX
-        uses: dante-ev/latex-action@2021-A
+        uses: yegor256/latexmk-action@0.7.1
         with:
-          extra_system_packages: biber
+          packages: biber
       - name: Compile LaTeX document
-        uses: dante-ev/latex-action@2021-A
+        uses: yegor256/latexmk-action@0.7.1
         with:
-          root_file: 0BMproje.tex
-          compiler: xelatex
-          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+          path: .
+          opts: -f -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
           name: document.pdf
-          path: document.pdf
+          path: mon_dossier/document.pdf
