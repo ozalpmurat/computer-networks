@@ -1,0 +1,11 @@
+- name: TeXLive Action
+  # You may pin to the exact commit or the version.
+  # uses: repaction/texlive@6713a805bd9bab56c4777f06c62b10de1c787750
+  uses: repaction/texlive@mini-v2
+  with:
+    # The LaTeX file to be compiled.
+    tex_files: 
+    # The LaTeX engine to be invoked.
+    compiler: # optional, default is latexmk
+    # Arguments to be passed to the LaTeX engine
+    options: # optional, default is -pdf -cd -file-line-error -halt-on-error -interaction=nonstopmode
