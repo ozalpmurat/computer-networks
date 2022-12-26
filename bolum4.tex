@@ -1,2 +1,76 @@
-\section{IP ADRESİ VE HESAPLAMALARI}
+\section{IP ADRESİ VE HESAPLAMALARI} %Notlarda 27.sayfa
 32 bit uzunluğa sahip olan IP adresi 2 temel bileşene sahiptir. 
+
+\begin{enumerate}
+\item Ağ tanımlayıcı
+\item Host tanımlayıcı
+\end{enumerate}
+
+\textbf{NOT : }Bir ağ içerisinde IP atanabilen ve kendisinin ağa bağlanma ihtiyacı olan bilgisayar, yönlendirici, güvenlik duvarı vb. cihazların tümüne host denir. 
+
+IP adresinin bu iki bileşeni hesaplanırken alt ağ maskesine ihtiyaç duyulur. Temel olarak alt ağ maskesi IP adresinin sınıfına göre belirlenir. IP adresleri 32 bitin sekizerli olarak gruplandırılması ve decimal olarak gösterilmesi şeklinde olur. Bu 8 bitlik grupların her birine oktet denir. Her oktet birbirinden nokta ile ayrılır. 
+
+\textbf{ÖRNEK : }
+\begin{center}
+\begin{tabular}{cccc}
+00001010.&00000000.&00000001.&10000000 \\
+10.       & 0.      & 1.      & 128      \\
+Her sekizerli & & & \\
+grup bir oktet & & &
+\end{tabular}
+\end{center}
+
+Bir IP adresinin bağlı olduğu sınıf ilk oktetinden anlaşılır. 
+
+\begin{center}
+\begin{tabular}{cc}
+00001010.00000000.00000001.&10000000 \\
+ağ tanımlayıcısı           &  host tanımlayıcısı \\ 
+24 bit ile $2^{24}$ tane ağ tanımlanabilir & 8 bit ile $2^8=256$ tane ağ tanımlanabilir\\
+\end{tabular}
+\end{center}
+
+\textbf{ÖRNEK : } 16 tane IP adresini bölüyoruz. (${2^4}$ bit ) 
+
+Görsel-1
+
+\textbf{NOT : }Ağlardaki bilgisayar sayıları(kullanılabilecek ip sayıları) belirlenirken maksimum kapasite 2'nin kuvveti ${2^n}$ %katı yazılmıştı, kuvveti olarak değiştirdim
+alınarak belirlenir. 
+
+\textbf{ÖRNEK : }Bir şirketin iki farklı şubesinde 120 ve 280 adet bilgisayar kullanılmaktadır. Bu şirketler için optimal ağ büyüklüklerini hesaplayınız. 
+
+\begin{itemize}
+\item[]$120 => 2^n = 2^7 => 128$
+\item[]$280 => 2^n = 2^9 => 512$
+\end{itemize}
+
+\textbf{NOT : }Host tanımlayıcısı kısmında belirtilen bitlerde elde edilebilecek en büyük sayı o ağda kullanılabilecek IP adresi sayısıdır. Her ağın ilk IP adresi \underline{"ağ adresi"} ve son IP adresi \underline{"yayın adresi"} olarak kullanıldığından her ağda kullanılabilecek host sayısı IP sayısından 2 eksiktir.
+\begin{itemize}
+\item[] Host bitleri : n tane 
+\item[] Ağdaki IP adresi : $2^n$ tane 
+\item[] Ağda kullanılabilecek host sayısı $2^n-2$
+\end{itemize}
+
+
+%29.sayfada kalındı.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
