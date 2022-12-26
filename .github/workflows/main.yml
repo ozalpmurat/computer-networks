@@ -18,7 +18,7 @@ jobs:
         uses: yegor256/latexmk-action@0.7.1
         with:
           path: .
-          opts: -pdf -latexoption=-file-line-error -latexoption=-encoding=utf8 -interaction=nonstopmode
+          opts: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
