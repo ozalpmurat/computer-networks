@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install LaTeX
-        uses: xu-cheng/latex-action@v2
+        uses: jankapunkt/latex-action@v3
         with:
-          tex-engine: 'xelatex'
+          texlive-schema: 'schema'
       - name: Compile LaTeX document
         run: xelatex 0BMproje.tex
       - name: Generate PDF
