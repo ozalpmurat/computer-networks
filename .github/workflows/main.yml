@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Pandoc and LaTeX
-        uses: jgm/pandoc@v2.19.2
+        uses: jgm/pandoc@2.19.2
       - name: Compile LaTeX document
         run: pandoc 0BMproje.tex -o document.pdf
       - name: Upload PDF
