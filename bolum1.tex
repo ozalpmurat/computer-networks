@@ -1,15 +1,26 @@
 \section{OSI MODELİ (OSI KATMANLARI)}
-
+Bir bilsigarden gönderilen bir bilgini diğer bilgisayara nasıl ulaştığnı anlatmak için tasarlanmıştır.
+İletişim 7 katmanlı mimarı ile tanımlar Ağ elemanlarının nasıl çalıştığını ve serinin iletimi sırasında hangi isimlerden gectiğini kavramak için kullanılan rehberdir.
+OSI Katmanlarının mantığını anlatmak ağları planlamak, ağ üzerinden çalısan program yazmak ve ağ sorunların çözmek için önemlidir.
 \subsection{Katmanlar}
+\begin{enumerate}
+	\item Fiziksel (Physcal)
+	\item Veri Bağı (Data link)
+	\item Ağ (IP)
+	\item Taşıma (Transport)
+	\item Oturum (Session)
+	\item Sunum (Presentation)
+	\item Uygulama (Application)
+\end{enumerate}
 
 \subsubsection{Fiziksel Katmanlar}
-
+Haberleşöme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçten gönderilen sinyalin karşi uca iletilmesinden sorumludur. Sayısal Haberleşmede en küçük birim bit olduğundan bu Katman hızı \bf{(bps) (b/s) bit/saniye} cinsindendir.
 Birinci katman donanımları:
 \begin{enumerate}
-\item Bakır ve FiberOptik Kablolar
-\item RF (Antenler)
-\item Sınyali 
-\item Kablosuz iletişimde kullanlan Hava 
+	\item Bakır ve FiberOptik Kablolar
+	\item RF (Antenler)
+	\item Sınyali
+	\item Kablosuz iletişimde kullanlan Hava
 \end{enumerate}
 
 \subsubsection{Veri Bağı Katmanı}
