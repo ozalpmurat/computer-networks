@@ -1,4 +1,4 @@
-- name: LaTeX compilation
+name: LaTeX compilation
   uses: dante-ev/latex-action@2021-A
   with:
     root_file: 0BMproje.tex
