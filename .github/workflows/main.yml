@@ -1,8 +1,27 @@
-name: LaTeX compilation
-uses: dante-ev/latex-action@2021-A
-  with:
-    root_file: 0BMproje.tex
-    working_directory: computer-networks
-    compiler: xelatex
-    args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
-    extra_system_packages: biber
+name: Compile LaTeX document
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install LaTeX
+        uses: dante-ev/latex-action@2021-A
+        with:
+          extra_system_packages: biber
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@2021-A
+        with:
+          root_file: 0BMproje.tex
+          compiler: xelatex
+          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
+        with:
+          name: document.pdf
+          path: document.pdf
