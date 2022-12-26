@@ -19,7 +19,7 @@ jobs:
         with:
           root_file: 0BMproje.tex
           compiler: xelatex
-          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+          args: -pdf -latexoption=-file-line-error -interaction=nonstopmode -latexoption=-encoding=utf8
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
