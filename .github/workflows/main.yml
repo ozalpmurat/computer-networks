@@ -14,4 +14,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
          name: 0BMproje.pdf
-         path: images/0BMproje.pdf
+         path: 0BMproje.pdf
