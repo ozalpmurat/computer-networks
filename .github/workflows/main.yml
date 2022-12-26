@@ -10,10 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Pandoc and LaTeX
-        uses: jgm/pandoc@2.19.2
+      - name: Install LaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          tex-engine: 'xelatex'
       - name: Compile LaTeX document
-        run: pandoc 0BMproje.tex -o document.pdf
+        run: xelatex 0BMproje.tex
+      - name: Generate PDF
+        run: xelatex 0BMproje.tex
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
