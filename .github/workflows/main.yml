@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install LaTeX
-        uses: blang/latex-action@v1
+        uses: blang/latex-docker@v2.0.0
         with:
           # The space-separated list of LaTeX packages to install first
           packages: biber
@@ -25,7 +25,7 @@ jobs:
           # LaTeX engine to be used
           compiler: xelatex
           # Extra arguments to be passed to the latex compiler
-          args: -f -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
+          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
       - name: Upload PDF
         uses: actions/upload-artifact@v2
         with:
