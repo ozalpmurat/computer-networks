@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install LaTeX
-        uses: blang/latex-docker@v2
+        uses: blang/latex-docker@v2.0.0
         with:
           tex-engine: 'xelatex'
       - name: Compile LaTeX document
