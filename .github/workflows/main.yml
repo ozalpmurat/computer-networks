@@ -4,7 +4,7 @@
   uses: repaction/texlive@mini-v2
   with:
     # The LaTeX file to be compiled.
-    tex_files: 
+    tex_files: 0BMproje.tex
     # The LaTeX engine to be invoked.
     compiler: # optional, default is latexmk
     # Arguments to be passed to the LaTeX engine
