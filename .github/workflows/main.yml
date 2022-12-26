@@ -1,25 +1,7 @@
-name: Compile LaTeX document
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install LaTeX
-        uses: jankapunkt/latex-action@v3
-        with:
-          texlive-schema: 'schema'
-      - name: Compile LaTeX document
-        run: xelatex 0BMproje.tex
-      - name: Generate PDF
-        run: xelatex 0BMproje.tex
-      - name: Upload PDF
-        uses: actions/upload-artifact@v2
-        with:
-          name: document.pdf
-          path: document.pdf
+- name: LaTeX compilation
+  uses: dante-ev/latex-action@2021-A
+  with:
+    root_file: 0BMproje.tex
+    compiler: xelatex
+    args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+    extra_system_packages: biber
