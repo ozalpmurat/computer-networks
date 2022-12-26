@@ -1,28 +1,26 @@
-name: 'Build LaTex Document with Biber'
+name: Compile LaTeX document
+
 on:
   push:
+    branches:
+      - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/cache@v3
-        name: Tectonic Cache
+      - uses: actions/checkout@v3
+      - name: Install LaTeX
+        uses: yegor256/latexmk-action@0.7.1
         with:
-          path: ~/.cache/Tectonic
-          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
-          restore-keys: |
-            ${{ runner.os }}-tectonic-
-      - uses: wtfjoke/setup-tectonic@v2
+          packages: biber
+      - name: Compile LaTeX document
+        uses: yegor256/latexmk-action@0.7.1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          biber-version: 'latest'
-      - name: Run Tectonic + Biber
-        run: tectonic 0BMproje.tex
-      - name: Upload pdf
-        uses: actions/upload-artifact@v3
+          path: 
+          opts: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode
+      - name: Upload PDF
+        uses: actions/upload-artifact@v2
         with:
-          name: main
-          path: main.pdf
+          name: document.pdf
+          path: mon_dossier/document.pdf
