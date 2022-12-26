@@ -1,33 +1,17 @@
-name: Compile LaTeX document
-
-on:
-  push:
-    branches:
-      - master
-
+name: Build LaTeX document
+on: [push]
 jobs:
-  build:
+  build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install LaTeX
-        uses: blang/latex-docker@v2.0.0
-        with:
-          # The space-separated list of LaTeX packages to install first
-          packages: biber
+      - name: Set up Git repository
+        uses: actions/checkout@v3
       - name: Compile LaTeX document
-        uses: blang/latex-docker@v2.0.0
+        uses: xu-cheng/latex-action@v2
         with:
-          # The root LaTeX file to be compiled
           root_file: 0BMproje.tex
-          # The working directory for the latex compiler to be invoked
-          working_directory: mon_dossier
-          # LaTeX engine to be used
-          compiler: xelatex
-          # Extra arguments to be passed to the latex compiler
-          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
-      - name: Upload PDF
-        uses: actions/upload-artifact@v2
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
         with:
-          name: document.pdf
-          path: mon_dossier/document.pdf
+          name: PDF
+          path: main.pdf
