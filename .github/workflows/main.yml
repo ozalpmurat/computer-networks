@@ -1,4 +1,4 @@
-name: Compile LaTeX document
+name: Télécharger et commit le fichier PDF
 
 on:
   push:
@@ -6,21 +6,35 @@ on:
       - master
 
 jobs:
-  build:
+  build_and_upload:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install LaTeX
-        uses: yegor256/latexmk-action@0.7.1
-        with:
-          packages: biber
+      - name: Set up Git repository
+        uses: actions/checkout@v3
       - name: Compile LaTeX document
-        uses: yegor256/latexmk-action@0.7.1
+        uses: xu-cheng/latex-action@v2
         with:
-          path: .
-          opts: -f -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -encoding=utf8
-      - name: Upload PDF
-        uses: actions/upload-artifact@v2
+          root_file: 0BMproje.tex
+      - name: Télécharger et commit le fichier PDF
+        uses: actions/create-or-update-file@v1
         with:
-          name: document.pdf
-          path: mon_dossier/document.pdf
+          # The path to the file to upload.
+          # This can be a file or a directory.
+          # If a directory is specified, all of its contents will be uploaded.
+          path: 0BMproje.pdf
+          # The name of the file on GitHub.
+          # If a directory is specified in the 'path' field, this field will be ignored.
+          filename: 0BMproje.pdf
+          # The commit message.
+          # If not specified, a default commit message will be used.
+          commit_message: Ajout du fichier PDF
+          # The name of the branch.
+          # If not specified, the default branch will be used.
+          branch: master
+          # The name of the repository.
+          # If not specified, the current repository will be used.
+          repository: computer-networks
+          # The name of the owner.
+          # If not specified, the current user will be used.
+          owner: ikhalilatteib
+

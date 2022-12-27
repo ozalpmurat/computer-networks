@@ -37,5 +37,6 @@
 \RequirePackage{totpages}
 \RequirePackage{verbatim}
 \flushbottom
-\RequirePackage[pdftex, unicode, linktoc=all, hidelinks, breaklinks]{hyperref}
+\RequirePackage[unicode, linktoc=all, hidelinks, breaklinks]{hyperref}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%

@@ -1,0 +1,18 @@
+name: Build
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Install TeX Live packages # (Note that you may don't need some of them)
+        run: sudo apt install -y texlive-base texlive-xetex texlive-lang-european latexmk texlive-fonts-recommended
+      - name: Download the fonts
+        run: for i in simhei.ttf simkai.ttf simsun.ttc simsunb.ttf simfang.ttf; do wget -P fonts/ https://xugr.keybase.pub/static/fonts/$i; done
+      - name: Copy the fonts # In newer version of fontconfig, it reads $HOME/.local/share/fonts/ but not $HOME/.fonts
+        run: mkdir -p ~/.local/share/fonts && cp -r fonts/* ~/.local/share/fonts/
+      - name: Build font information caches
+        run: fc-cache -rv
+      - name: Compile LaTeX document
+        run: latexmk -xelatex -interaction=nonstopmode -file-line-error 0BMproje.tex
