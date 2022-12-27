@@ -15,20 +15,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: 0BMproje.tex
-      - name: Publier le fichier PDF sur une page GitHub
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload pdf
+        uses: actions/upload-artifact@v3
         with:
-          # The name of the branch that contains the source files
-          # If not specified, the default branch will be used
-          source_branch: master
-          # The name of the branch that will host the published files
-          # If not specified, the default branch will be used
-          target_branch: gh-pages
-          # The path to the directory that contains the files to be published
-          # This should be a relative path from the root of the repository
-          publish_dir: .
-          # The GitHub personal access token
-          # This is required to push to the target branch
-          # You can create a personal access token by going to Settings > Developer Settings > Personal Access Tokens
-          # It is recommended to store the token in a secure secret
-          token: ${{ secrets.GITHUB_TOKEN }}
+         name: 0BMproje.pdf
+         path: 0BMproje.pdf
