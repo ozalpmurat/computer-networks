@@ -20,4 +20,13 @@ jobs:
         with:
           name: 0BMproje.pdf
           path: 0BMproje.pdf
+      - name: Commit and push updated PDF
+        uses: actions/git@v2
+        with:
+          repo: https://github.com/ikhalilatteib/computer-networks.git
+          branch: master
+          email: i.khalilatteib@gmail.com
+          name: IBRAHIM KHALIL ATTEIB YACOUB
+          message: Update PDF file
+          path: 0BMproje.pdf
 
