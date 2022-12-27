@@ -1,19 +1,18 @@
+name: Build
 on: [push]
-
 jobs:
-  build-resume:
+  build_latex:
     runs-on: ubuntu-latest
-    name: Create document
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Convert to pdf
-      id: convert-to-pdf
-      uses: closoco/pdflatex-action@v1.0.0
-      with:
-        texFile: ./0BMproje.tex
-    - name: Store pdf
-      uses: actions/upload-artifact@v2
-      with:
-        name: 0BMproje.pdf
-        path: 0BMproje.pdf
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Install TeX Live packages # (Note that you may don't need some of them)
+        run: sudo apt install -y texlive-base texlive-xetex texlive-lang-european latexmk
+      - name: Download the fonts
+        run: for i in simhei.ttf simkai.ttf simsun.ttc simsunb.ttf simfang.ttf; do wget -P fonts/ https://xugr.keybase.pub/static/fonts/$i; done
+      - name: Copy the fonts # In newer version of fontconfig, it reads $HOME/.local/share/fonts/ but not $HOME/.fonts
+        run: mkdir -p ~/.local/share/fonts && cp -r fonts/* ~/.local/share/fonts/
+      - name: Build font information caches
+        run: fc-cache -rv
+      - name: Compile LaTeX document
+        run: latexmk -xelatex -interaction=nonstopmode -file-line-error 0BMproje.tex
