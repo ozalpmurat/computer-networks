@@ -1,10 +1,10 @@
 \section{OSI MODELİ (OSI KATMANLARI)}
-Bir bilgisayardan gönderilen bir bilgini diğer bilgisayara nasıl ulaştığnı anlatmak için tasarlanmıştır.
-İletişim 7 katmanlı mimarı ile tanımlar Ağ elemanlarının nasıl çalıştığını ve serinin iletimi sırasında hangi isimlerden gectiğini kavramak için kullanılan rehberdir.
-OSI Katmanlarının mantığını anlatmak ağları planlamak, ağ üzerinden çalısan program yazmak ve ağ sorunların çözmek için önemlidir.
+Bir bilgisayardan gönderilen bir bilginin diğer bilgisayara nasıl ulaştığını anlatmak için tasarlanmıştır.
+İletişimi 7 katmanlı mimarı ile tanımlar. Ağ elemanlarının nasıl çalıştığını ve verinin iletimi sırasında hangi işlemlerden gectiğini kavramak için kullanılan rehberdir.
+OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden çalışan program yazmak ve ağ sorunlarını çözmek için önemlidir.
 \subsection{Katmanlar}
 \begin{enumerate}
-	\item Fiziksel (Physcal)
+	\item Fiziksel (Physical)
 	\item Veri Bağı (Data link)
 	\item Ağ (IP)
 	\item Taşıma (Transport)
@@ -14,19 +14,19 @@ OSI Katmanlarının mantığını anlatmak ağları planlamak, ağ üzerinden ç
 \end{enumerate}
 
 \subsubsection{Fiziksel Katmanlar}
-Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçten gönderilen sinyalin karşi uca iletilmesinden sorumludur. Sayısal Haberleşmede en küçük birim bit olduğundan bu Katman hızı \bf{(bps) (b/s) bit/saniye} cinsindendir.
+Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçten gönderilen sinyalin karşı uca iletilmesinden sorumludur. Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \bf{(bps) (b/s) bit/saniye} cinsindendir.
 Birinci katman donanımları:
 \begin{enumerate}
-	\item Bakır ve FiberOptik Kablolar
+	\item Bakır ve fiber optik kablolar
 	\item RF (Antenler)
-	\item Sinyali
-	\item Kablosuz iletişimde kullanılan Hava
+	\item Sinyali(işareti) elektrik olarak yükselten ve çoklayan HUB cihazları
+	\item Kablosuz iletişimde kullanılan hava
 \end{enumerate}
 
 \subsubsection{Veri Bağı Katmanı}
-Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır, kaynaktan cıkan verilerin(bitler) hedef ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
-En çok kullanılan hata bulma algoritmalar \textbf{eşlik biti(perity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığı bakmaz, sadece sağlamlığını kontol eder.\
-Bu katmanda üst katmandan gelen veriler ???? adi verilen paketleme işlemini tabi tutulur. ??? de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini ikinci katman protokolünü kullanması gerekir.
+Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır. Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
+En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti(perity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
+Bu katmanda üst katmandan gelen veriler ???? adı verilen paketleme işlemini tabi tutulur. Kapsülleme de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini(ikinci katman protokolünü) kullanması gerekir.
 
 \begin{table}[h]
 	\centering
@@ -39,18 +39,18 @@ Bu katmanda üst katmandan gelen veriler ???? adi verilen paketleme işlemini ta
 	\end{tabular}
 \end{table}
 
-\subsubsection*{Günümüzde en yaygin ikinci katman protokolleri}
+\subsubsection*{Günümüzde en yaygın ikinci katman protokolleri}
 \textbf{Yerel ağda (LAN)} : Ethernet \\
 \textbf{Uzak ağlarda (WAN)} : AIM, PPP, Frame, Relay, Metroethernet
-\subsection*{Anahtarlar}
+\subsection*{Anahtarlama}
 \begin{enumerate}
-	\item[$\blacksquare$] \textbf{Devre Anahtarlama}: Veri aktarımı, fiziksel değişiklikler yapılır.
-	\item[$\blacksquare$] \textbf{Paket Anahtarlama}: Veri aktarımı, her bir veri paketi için hesaplanarak, yazılımsal olarak yapılır
+	\item[$\blacksquare$] \textbf{Devre Anahtarlama}: Veri aktarımı, fiziksel değişiklikle yapılır.
+	\item[$\blacksquare$] \textbf{Paket Anahtarlama}: Veri aktarımı, her bir veri paketi için hesaplanarak, yazılımsal olarak yapılır.
 \end{enumerate}
 Ethernet protokolünde kaynak ve hedef adresleri olarak MAC adresi (fiziksel adresi) kullanılır.\\
-	Aynı ağda iki MAC adresi olmamalı sebebi çakışmalar engellemek için.
+	Çakışmaları engellemek için aynı ağda iki MAC adresi olmamalıdır.
 
-Anahtarlar(switch) bu katmanda calışır. Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır( otomatık öğrenir). Bu şekilde iki farklıı portu arasındakı trafığı diğer cıihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
+Anahtarlar(switch) bu katmanda calışır. Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır(otomatik öğrenir). Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
 \subsubsection{AĞ Katmanı (IP) }
 
 \subsubsection{Taşıma Katmanı}
