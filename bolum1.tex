@@ -24,8 +24,33 @@ Birinci katman donanımları:
 \end{enumerate}
 
 \subsubsection{Veri Bağı Katmanı}
+Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır, kaynaktan cıkan verilerin(bitler) hedef ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
+En çok kullanılan hata bulma algoritmalar \textbf{eşlik biti(perity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığı bakmaz, sadece sağlamlığını kontol eder.\
+Bu katmanda üst katmandan gelen veriler ???? adi verilen paketleme işlemini tabi tutulur. ??? de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini ikinci katman protokolünü kullanması gerekir.
 
+\begin{table}[h]
+	\centering
+	\caption{Kapsülleme}
+	\label{tab:table_kapsulleme}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Kaynak & Veri & ??? \\
+		\hline
+	\end{tabular}
+\end{table}
 
+\subsubsection*{Günümüzde en yaygin ikinci katman protokolleri}
+\textbf{Yerel ağda (LAN)} : Ethernet \\
+\textbf{Uzak ağlarda (WAN)} : AIM, PPP, Frame, Relay, Metroethernet
+\subsection*{Anahtarlar}
+\begin{enumerate}
+	\item[$\blacksquare$] \textbf{Devre Anahtarlama}: Veri aktarımı, fiziksel değişiklikler yapılır.
+	\item[$\blacksquare$] \textbf{Paket Anahtarlama}: Veri aktarımı, her bir veri paketi için hesaplanarak, yazılımsal olarak yapılır
+\end{enumerate}
+Ethernet protokolünde kaynak ve hedef adresleri olarak MAC adresi (fiziksel adresi) kullanılır.\\
+	Aynı ağda iki MAC adresi olmamalı sebebi çakışmalar engellemek için.
+
+Anahtarlar(switch) bu katmanda calışır. Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır( otomatık öğrenir). Bu şekilde iki farklıı portu arasındakı trafığı diğer cıihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
 \subsubsection{AĞ Katmanı (IP) }
 
 \subsubsection{Taşıma Katmanı}
