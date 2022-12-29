@@ -52,23 +52,240 @@ alınarak belirlenir.
 \end{itemize}
 
 \textbf{ÖRNEK : } 10.9.8.0 IP adresinin 30. bitten sonrasının bulunduğunu varsayalım. Alt ağ IP adresinin kullanım amacına göre yazalım. 
-ahanda buraya yazı yazdım
+
 \begin{tabular}{ll}
+..... & ..... \\
+30 bit& 2bit\\
+\end{tabular}
+
+IP sayısı $2^2=4$ tane
+Host sayısı $2^2-2=2$ tane
+
+
+\begin{tabular}{lll}
+1.IP adresi 10.9.8.0 & ->& Ağ adresi \\
+2. ve 3. IP adresi 10.9.8.1 ve 10.9.8.2 & -> & Hostlar için kullanılabilir\\
+4. IP adresi 10.9.8.3 & -> & Yayın adresi 
+\end{tabular}
+
+\textbf{NOT : }
+
+\begin{tabular}{ll|l}
+Ağ sayısı & Host sayısı &Toplam host sayısı\\
+\hline 
+1&16&14\\
+2&8&$2 \dot{•} (8-2) =12$ \\
+4&4&$4 \dot{•} (4-2) = 8$\\
+\end{tabular}
+
+
+\subsection{Ip Sınıfları}
+IP'nin ilk tasarlandığı sıralarda ortaya çıkmış bir kavramdır. Kurumlarda IP adresleri tahsis edilirken ihtiyaca göre optimal sayıda verebilmek için tasarlanmıştır. En büyük IP sınıfı A sınıfı, en küçük IP sınıfı C sınıfıdır. 
+
+\underline{A sınıfı :} İlk biti(MSB) 0 olan IP adresleridir. 
+
+\begin{tabular}{l}
+01111111.11111111.11111111.11111111 \\
+  127  \hspace{1.1cm} 255\hspace{1.1cm}255\hspace{1.1cm} 255 \\
+\end{tabular}
+
+İlk oktet 0-127 arasında olur. Varsayılan ap maskesi 255.0.0.0'dır. A sınıfı bir IP adresinde $2^{24}$ tane IP oluşturulabilir.
+
+\underline{B sınıfı} İlk iki biti 1.0 şeklindedir. Ondalık formda ilk  okteti 128 ve 191 arasındaki adreslerdir. Varsayılan alt ağ maskesi 255.255.0.0'dır. B sınıfı bir IP adresinde $2^{16}$ tane IP oluşturulabilir.
+
+
+\underline{C sınıfı} İlk üç biti 1.1.0 şeklindedir. Ondalık formda ilk okteti 192 ve 223 arasındaki adreslerdir. Varsayılan alt ağ maskesi 255.255.255.0'dır. B sınıfı bir IP adresinde $2^{8}$ tane IP oluşturulabilir.
+
+\underline{D sınıfı} İlk dört biti 1.1.1.0'dır. Ondalık formda ilk okteti 224-239 arasındadır. \underline{Multicast}(Çoklu yayın) olarak bilinir. Normalde hostlarda kullanılmaz. 
+
+\underline{E sınıfı} 240-248 ile başlar. Deneysel amaçlar için rezerve edilmiştir. Normalde Hostlarda ve ağlarda kullanılmaz.
+
+\begin{tabular}{lll}
+A sınıfı & 0-127 & \\
+B sınıfı & 128-191 & \\
+C sınıfı & 192-223 & \\
+D sınıfı & 224.0.0.0 \vline & Kullanmıyoruz \\
+E sınıfı & 255.0.0.0 \vline  &Kullanmıyoruz \\
+\end{tabular} 
+
+Peki neden böyle bir sınıflandırma yapıldı?
+
+\begin{tabular}{l|l|l}
+Ağ biti & Host bitleri & Her ağdaki IP sayısı \\
+\hline
+8& 24->A sınıfı &$2^{24}$ tane IP \\
+16& 16->B sınıfı &$2^{16}$ tane IP \\
+24&8->C sınıfı &$2^8$ tane IP \\
+
+\end{tabular}
+
+\textbf{ÖRNEK : } 132.x.x.x IP adresi B sınıfıdır.
+132.45.x.x IP adresinin ilk iki okteti ağ tanımlayacısı son iki oktet host tanımlayıcısıdır. $2^16$ tane IP alabilir. 
+
+112.x.x.x IP adresi A sınıfıdır. $2^{24}$ tane IP alabilir.
+
+193.140.253.x IP adresi C sınıdır. $2^8$ tane IP alabilir.
+
+
+\subsection{Özel IP Adresleri(Private IP Blocks)}
+
+İnternette kullanılmayan IP adresleridir. İnternet üzerinde hiçbir yönlendirici tarafından yönlendirilmeyen IP adresleridir. Bu adreslerin kullanım amacı test uygulamaları ve NAT uygulamaları gibi durumlardır. IP adresleri tükendiğinden kurumlarda kullanılan bilgisayarların tamamına yetmemektedir. Bu nedenle günümüzde kurumların iç ağlarında özel IP adresleri istenilen sayıda kullanılabilir. 
+
+\begin{itemize}
+\item 10.0.0.0/8 ->$2^{24}$ IP adresi
+\item 172.16.0.0 ->$2^{20}$ IP adresi
+\item 192.168.0.0 ->$2^{16}$ IP adresi
+\end{itemize}
+
+\textbf{NAT(Network Address Translation)}
+
+-Görsel NAT
+
+
+\subsection{Ağ Maskesi(Netmask)}
+
+IP adreslerinin bitlerden oluştuğunu ve iki bileşeni olduğunu biliyoruz. Bu iki bileşenin hangi bitten ayrılacağını bulmak için ağ maskesi kullanılır. Ağ maskesi herhangi bir IP adresi ile ikilik sistemde çarpılırsa(ve işlemi) çıkan sonuç ağın adresini verir. 
+
+
+\textbf{ÖRNEK : }
+
+\begin{itemize}
+\item[] IP : 192.168.1.75
+\item[] Ağ maskesi : 255.255.255.0
+\item[] 11000000.10101000.00000001.01001011
+\item[] 11111111.11111111.11111111.00000000
+\item[] 11000000.10101000.00000001.00000000
+\item[] Ağ adresi 192.168.1.0
+\end{itemize} 
+
+\subsection{CIDR Notasyonu}
+
+Elimizde sadece IP adresleri olduğunda ağla ilgili yeterli bilgiye ulaşamadığımızı, ilave olarak IP adresinin hangi bitten bölündüğünü bilmemiz gerektiğini biliyoruz. Bunun için ağ maskesine alternatif olarak CIDR Notasyonu kullanılmaktadır. Bu gösterim şeklinde IP adresinin sağına "/" işareti konulup bölünen bit numarası yazılır. 
+
+\textbf{ÖRNEK : } 
+
+\begin{itemize}
+\item[] 192.168.1.75 IP adresli ve 255.255.255.0 ağ maskesine sahip bir cihazın CIDR notasyonu 192.168.1.75/24 şeklindedir. 
+\item[] 10.1.0.0 ve 255.0.0.0 ise 10.1.0.0/8 olarak gösterilir. 
+\item[] 10.9.8.0 ve 255.255.255.128 ise 10.9.8.0/25 şeklinde gösterilir. (128 ikilik tabanda 10000000 şeklinde gösterildiğinden soldan 25 tane 0 vardır.) 
+\end{itemize}
+
+\subsection{Alt Ağa Bölme}
+IP adresi ve ağı temsil eden bit sayısı belirli olan bir ağ birden fazla küçük ağlara bölünebilir. Alt ağa bölme işlemi alt ağ maskesinde bir bit kaydırılarak yapılır. Bu şekilde $2^n$ tane alt ağ bölme işlemi yapılabilir. 
+
+\textbf{ÖRNEK : } 
+
+\textbf{a)} 10.0.0.0/24 ağını iki ayrı ağa bölelim.
+
+
+
+\textbf{b)}Yeni oluşturulan ağlar için 10.0.0.100 ve 10.0.0.150 IP adreslerinin aynı ağda olup olmadıklarını hesaplayın. (İpucu : Ağ adresi = IP x Ağ maskesi)
+
+\textbf{c)}128 IP'li ağların her birini ikiye bölünüz. 
+
+
+\underline{Çözüm :}
+
+\textbf{a)}
+\begin{itemize}
+\item[] Ağ : 10.0.0.0/24
+\item[] Ağ maskesi : 255.255.255.0 (24 tane 1 8 tane 0 var. $2^8$ tane IP var)
+\item[] Ağ maskesi : 11111111.11111111.11111111.00000000 ağ maskesinde 1 bit sağa kaydırdığımızda 25 tane 1 7 tane 0 olacaktır. $2^7=128$ tane IP elde edilir. 
+\end{itemize} 
+
+1 bit kayarsa $2^1=2$ alt ağ
+2 bit kayarsa $2^2=4$ alt ağ
+\vdots
+n bit kayarsa $2^n$ alt ağ elde edilebilir. 
+
+10.0.0.0/25 notasyonuna sahip bir ağda 1.alt ağ 10.0.0.0 IP adresiyle başlar. 128 adet IP tanımlanır. Son IP 10.0.0.127 olur. 2. alt ağ ise 10.0.0.128 IP adresinden 10.0.0.255 IP adresine kadar 128 adet IP alabilir. 
+
+
+\begin{tabular}{l|l|l|l|l|l}
+&Ağ adresi & Yayın adresi & Ağ maskesi & IP sayısı & Host sayısı\\
+\hline
+1.ağ & 10.0.0.0/25 & 10.0.0.127 & 255.255.255.128 & 128 &126 \\
+\hline
+2.ağ & 10.0.0.128/25 & 10.0.0.255 &255.255.255.128 & 128 & 126 \\
 
 \end{tabular}
 
 
+\textbf{b)}
+
+\begin{tabular}{llll}
+& 00001001.00000000.00000000.01100100 &=& 10.0.0.100\\
+ağ maskesi:& 11111111.11111111.11111111.00000000 &=&10.0.0.128\\
+\hline
+&00001001.00000000.00000000.10010110 &=&10.0.0.150 \\
+
+\end{tabular}
+
+Son oktetleri farklı olacağından aynı ağda değillerdir. 
+
+\textbf{c)} 
+
+\begin{tabular}{cc}
+1.ağ & 2.ağ \\
+\hline
+10.0.0.0/25 & 10.0.0.128/25 \\
+\end{tabular}
+
+Ağ maskesi 255.255.255.128 
+
+1111111.11111111.11111111.10000000
+
+Yeni oluşan ağ maskesi 255.255.255.192
+
+\begin{tabular}{ll}
+1.ağ & \begin{tabular}{l}
+10.0.0.0 ->ağ \\
+\hline
+10.0.0.63 ->yayın \\
+\end{tabular}  \\   
+\end{tabular}
+
+\begin{tabular}{ll}
+2.ağ & \begin{tabular}{l}
+10.0.0.64 ->ağ \\
+\hline
+10.0.0.127 ->yayın \\
+\end{tabular}  \\   
+\end{tabular}
 
 
 
+\begin{tabular}{ll}
+3.ağ & \begin{tabular}{l}
+10.0.0.128 ->ağ \\
+\hline
+10.0.0.191 ->yayın \\
+\end{tabular}  \\   
+\end{tabular}
 
 
+\begin{tabular}{ll}
+4.ağ & \begin{tabular}{l}
+10.0.0.192 ->ağ \\
+\hline
+10.0.0.255 ->yayın \\
+\end{tabular}  \\    
+\end{tabular}
 
+\textbf{SORU : } 10.9.6.0/25 ağını 4 ayrı ağa bölünüz.
 
+Ağ maskesi 255.255.255.0
+11111111.11111111.11111111.0
 
+\begin{tabular}{lll}
+Yeni ağ maskesi  & : &11111111.11111111.11111111.11100000 ($2^5=32$ IP var.) \\
+                 & : & 255.255.255.224   \\
+\end{tabular}
 
-
-
+\begin{tabular}{ll}
+10.0.0.0 & 10.0.0.64 \\
+10.0.0.31 & 10.0.0.127\\
+\end{tabular}
 
 
 
