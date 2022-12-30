@@ -1,7 +1,9 @@
 \section{OSI MODELİ (OSI KATMANLARI)}
 Bir bilgisayardan gönderilen bir bilginin diğer bilgisayara nasıl ulaştığını anlatmak için tasarlanmıştır.
-İletişimi 7 katmanlı mimarı ile tanımlar. Ağ elemanlarının nasıl çalıştığını ve verinin iletimi sırasında hangi işlemlerden gectiğini kavramak için kullanılan rehberdir.
+İletişimi 7 katmanlı mimarı ile tanımlar.
+Ağ elemanlarının nasıl çalıştığını ve verinin iletimi sırasında hangi işlemlerden gectiğini kavramak için kullanılan rehberdir.
 OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden çalışan program yazmak ve ağ sorunlarını çözmek için önemlidir.
+
 \subsection{Katmanlar}
 \begin{enumerate}
 	\item Fiziksel (Physical)
@@ -14,7 +16,9 @@ OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden ça
 \end{enumerate}
 
 \subsubsection{Fiziksel Katmanlar}
-Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçtan gönderilen sinyalin karşı uca iletilmesinden sorumludur. Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \textbf{(bps) (b/s) bit/saniye} cinsindendir.
+Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır.
+Bir uçtan gönderilen sinyalin karşı uca iletilmesinden sorumludur.
+Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \textbf{(bps) (b/s) bit/saniye} cinsindendir.
 Birinci katman donanımları:
 \begin{enumerate}
 	\item Bakır ve fiber optik kablolar
@@ -24,9 +28,13 @@ Birinci katman donanımları:
 \end{enumerate}
 
 \subsubsection{Veri Bağı Katmanı}
-Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır. Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
-En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti (parity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
-Bu katmanda üst katmandan gelen veriler çerçeve (frame) adı verilen paketleme işlemini tabi tutulur. Kapsülleme de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikinci katman protokolünü) kullanması gerekir.
+Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır.
+Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
+En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti (parity check)} ve \textbf{CRC algoritmasıdır}.
+Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
+Bu katmanda üst katmandan gelen veriler çerçeve (frame) adı verilen paketleme işlemini tabi tutulur.
+Kapsülleme de denir.
+Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikinci katman protokolünü) kullanması gerekir.
 
 \begin{table}[h]
 	\centering
@@ -48,11 +56,38 @@ Bu katmanda üst katmandan gelen veriler çerçeve (frame) adı verilen paketlem
 	\item[$\blacksquare$] \textbf{Paket Anahtarlama}: Veri aktarımı, her bir veri paketi için hesaplanarak, yazılımsal olarak yapılır.
 \end{enumerate}
 Ethernet protokolünde kaynak ve hedef adresleri olarak MAC adresi (fiziksel adresi) kullanılır.\\
-	Çakışmaları engellemek için aynı ağda iki MAC adresi olmamalıdır.
+Çakışmaları engellemek için aynı ağda iki MAC adresi olmamalıdır.
 
-Anahtarlar(switch) bu katmanda calışır. Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır(otomatik öğrenir). Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
+Anahtarlar(switch) bu katmanda calışır.
+Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır(otomatik öğrenir).
+Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
+
 \subsubsection{AĞ Katmanı (IP) }
-
+İnternet dünyanın farklı yerlerindeki ağlar üzerinden erişebilir kiler katman budur.
+Kaynak ve hedef olarak IP adresi kullanılır.
+IP yönlendirilebilir bir protokol olduğundan her türlü veri aağı üzerinden haberleşmeye olarak sağlanır.
+Bu katman en önemli görevi yönlendirme işlemidir.
+Yönlendirme işlemş birden fazla ağ arayüzüne( network interface) sahip olan yönlendirici(router) adı verilen cihazlar tarafından yapılır.
+IP internetin temel protokolüdür.
+Yani bir PC internete bağlanacaksa IP'yi mutlaka biliyor olmalıdır.
+	Bazı anahteler ücüncü katmanda da çalısabilmektedir.
+\begin{figure}[!ht]
+	\includegraphics[width=15cm]{images/ip_katman}
+	\caption{AĞ Katmanı}
+	\label{fig:exemple_for_network_model}
+\end{figure}
+\begin{enumerate}
+	\item[$\blacksquare$] \textbf{A,B,C} aynı ağdadır. Birbirleriyle MAC  adresleriyle haberleşir (2. katman).
+	\item[$\blacksquare$] \textbf{X,Y,Z} aynı ağdadır. Birbirleriyle MAC  adresleriyle haberleşir (2. katman).
+\end{enumerate}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=10cm]{images/ip_communication}
+	\label{fig:exemple_for_ip_communication}
+\end{figure}
+\begin{enumerate}
+	\item[!] \textbf{En küçük birimine paketleme denir.}
+\end{enumerate}
 \subsubsection{Taşıma Katmanı}
 
 \subsubsection{Uygulama Seviyesi Katmanları}
