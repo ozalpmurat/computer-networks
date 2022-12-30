@@ -22,7 +22,3 @@ jobs:
         with:
          name: 0BMproje.pdf
          path: 0BMproje.pdf
-      - uses: actions/download-artifact@v3
-        with:
-         name: 0BMproje.pdf
-         # path: path/to/artifacts
