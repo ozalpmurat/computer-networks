@@ -19,4 +19,9 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
          name: 0BMproje.pdf
-         path: ~/
+         path: 0BMproje.pdf
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v2.0.9
+        with: 
+          name: PDF 
+          path: PDF
