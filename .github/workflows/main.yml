@@ -1,4 +1,4 @@
-name: Publier le fichier PDF sur une page GitHub
+name: Add latest PDF on Master branch
 
 on:
   push:
@@ -15,10 +15,20 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: 0BMproje.tex
-          # pre_compile: "tlmgr update --self && tlmgr update --all"
-          post_compile: "latexmk -c"
-      - name: Upload pdf
-        uses: actions/upload-artifact@v3
+      - name: 'Tar files'
+        run: tar -cvf 0BMproje.tar /home/runner/work/computer-networks/
+      - name: 'Upload 0BMproje'
+        uses: actions/upload-artifact@v2
         with:
-         name: 0BMproje.pdf
-         path: 0BMproje.pdf
+         name: 0BMproje
+         path: 0BMproje.tar    
+      - uses: actions/download-artifact@v3
+        with:
+          name: 0BMproje
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add /home/runner/work/computer-networks/computer-networks/0BMproje.pdf -f
+          git commit -m "Güncel PDF eklendi"
+          git push
