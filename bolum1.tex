@@ -14,7 +14,7 @@ OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden ça
 \end{enumerate}
 
 \subsubsection{Fiziksel Katmanlar}
-Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçten gönderilen sinyalin karşı uca iletilmesinden sorumludur. Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \bf{(bps) (b/s) bit/saniye} cinsindendir.
+Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır. Bir uçtan gönderilen sinyalin karşı uca iletilmesinden sorumludur. Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \textbf{(bps) (b/s) bit/saniye} cinsindendir.
 Birinci katman donanımları:
 \begin{enumerate}
 	\item Bakır ve fiber optik kablolar
@@ -25,8 +25,8 @@ Birinci katman donanımları:
 
 \subsubsection{Veri Bağı Katmanı}
 Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır. Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
-En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti(perity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
-Bu katmanda üst katmandan gelen veriler ???? adı verilen paketleme işlemini tabi tutulur. Kapsülleme de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini(ikinci katman protokolünü) kullanması gerekir.
+En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti (parity check)} ve \textbf{CRC algoritmasıdır}. Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
+Bu katmanda üst katmandan gelen veriler çerçeve (frame) adı verilen paketleme işlemini tabi tutulur. Kapsülleme de denir. Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikinci katman protokolünü) kullanması gerekir.
 
 \begin{table}[h]
 	\centering
