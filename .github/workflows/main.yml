@@ -17,8 +17,3 @@ jobs:
           root_file: 0BMproje.tex
           pre_compile: "tlmgr update --self && tlmgr update --all"
           post_compile: "latexmk -c"
-      - name: Upload pdf
-        uses: actions/upload-artifact@v3
-        with:
-         name: 0BMproje.pdf
-         path: 0BMproje.pdf
