@@ -3,7 +3,7 @@
 !*.cls
 !*.md
 !.gitignore
-!images/*
+!images
 !filigran.jpg
 !logomuz.jpg
 

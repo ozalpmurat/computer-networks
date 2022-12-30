@@ -13,7 +13,7 @@
 %\renewcommand\familydefault{\sfdefault}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{tikz}
-\RequirePackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\RequirePackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amssymb,amsmath,amsthm}
 \RequirePackage{graphics,graphicx}
