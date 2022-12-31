@@ -31,10 +31,10 @@ Birinci katman donanımları:
 Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır.
 Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
 En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti (parity check)} ve \textbf{CRC algoritmasıdır}.
-Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontol eder.
+Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontrol eder.
 Bu katmanda üst katmandan gelen veriler çerçeve (frame) adı verilen paketleme işlemini tabi tutulur.
 Kapsülleme de denir.
-Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikinci katman protokolünü) kullanması gerekir.
+Birbirine doğrudan bağlı ağ cihazlarının aynı kapsülleme yöntemini (ikinci katman protokolünü) kullanması gerekir.
 
 \begin{table}[h]
 	\centering
@@ -42,7 +42,7 @@ Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikin
 	\label{tab:table_kapsulleme}
 	\begin{tabular}{|c|c|c|}
 		\hline
-		Kaynak & Veri & ??? \\
+		Kaynak & Veri & Hata Denetimi \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -55,22 +55,21 @@ Birbirine doğrudan bağlı ağ cihazlarının aynı kapsulleme yöntemini (ikin
 	\item[$\blacksquare$] \textbf{Devre Anahtarlama}: Veri aktarımı, fiziksel değişiklikle yapılır.
 	\item[$\blacksquare$] \textbf{Paket Anahtarlama}: Veri aktarımı, her bir veri paketi için hesaplanarak, yazılımsal olarak yapılır.
 \end{enumerate}
-Ethernet protokolünde kaynak ve hedef adresleri olarak MAC adresi (fiziksel adresi) kullanılır.\\
-Çakışmaları engellemek için aynı ağda iki MAC adresi olmamalıdır.
+Ethernet protokolünde kaynak ve hedef adresleri olarak MAC adresi (fiziksel adresi) kullanılır. Çakışmaları engellemek için aynı ağda iki MAC adresi olmamalıdır.
 
-Anahtarlar(switch) bu katmanda calışır.
-Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır(otomatik öğrenir).
-Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler \textbf{HUB'lardan en önemli farkı budur}.
+Anahtarlar (switch) bu katmanda çalışır.
+Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundadır (otomatik öğrenir).
+Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler. \textbf{HUB'lardan en önemli farkı budur}.
 
 \subsubsection{AĞ Katmanı (IP) }
 İnternet dünyanın farklı yerlerindeki ağlar üzerinden erişebilir kiler katman budur.
 Kaynak ve hedef olarak IP adresi kullanılır.
 IP yönlendirilebilir bir protokol olduğundan her türlü veri aağı üzerinden haberleşmeye olarak sağlanır.
 Bu katman en önemli görevi yönlendirme işlemidir.
-Yönlendirme işlemş birden fazla ağ arayüzüne( network interface) sahip olan yönlendirici(router) adı verilen cihazlar tarafından yapılır.
+Yönlendirme işlemi birden fazla ağ arayüzüne (network interface) sahip olan yönlendirici(router) adı verilen cihazlar tarafından yapılır.
 IP internetin temel protokolüdür.
 Yani bir PC internete bağlanacaksa IP'yi mutlaka biliyor olmalıdır.
-	Bazı anahteler ücüncü katmanda da çalısabilmektedir.
+	Bazı anahtarlar üçüncü katmanda da çalışabilmektedir.
 \begin{figure}[!ht]
 	\includegraphics[width=15cm]{images/ip_katman}
 	\caption{AĞ Katmanı}
@@ -88,7 +87,63 @@ Yani bir PC internete bağlanacaksa IP'yi mutlaka biliyor olmalıdır.
 \begin{enumerate}
 	\item[!] \textbf{En küçük birimine paketleme denir.}
 \end{enumerate}
+
 \subsubsection{Taşıma Katmanı}
+İnternette IP üzerinde kullanılan 2 tane 4. katman protokolü vardır.
+Bunlar \textcolor{red}{\textbf{TCP}} ve \textcolor{red}{\textbf{UDP}} dir.
+Bu katman uygulama programları için seri iletişim kanalları kuran katmandır.
+Bu kanallar port adı verilen servis numaralarıyla kurulur.
+
+\textbf{TCP}: Bağlantı temelli bir protokoldür. Trafik başlamadan önce karşıdaki uca müsait olup olmadığı sorulur.
+Bu yönüyle telefon görüşmesine benzer.
+
+\textbf{UDP}: Bağlantı temelli değildir. Trafik doğrudan başlatıldığı için paketlerin iletimi garanti edilmez.
+SMS gönderimine benzetilebilir. Özellikle gerçek zamanlı görüntü ve ses taşıma uygulamalarında elverişlidir.
+\textbf{TCP}'ye göre daha \textbf{hızlıdır}.
 
 \subsubsection{Uygulama Seviyesi Katmanları}
+\textbf{Örnek}: 3 way handshaking - 3 aşamalı el sıkışma
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=10cm]{images/tcp_example}
+	\caption{TCP Protokolü}
+	\label{fig:tcp_example}
+\end{figure}
+Oturum açıldıktan sonra ilk olacak
+- Veri kaç parçada gönderilecek \\
+1GB filmi \\
+80 segmentte $\Rightarrow$ (1180 2180 .... 80/80) bunlar paketlenir.
+
+\textbf{TCP}'de sadece yavaşlama olacak görürüz.
+En önemli avantajı budur.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=10cm]{images/upd_example}
+	\caption{UDP Protokolü}
+	\label{fig:upd_example}
+\end{figure}
+\textbf{UDP}'nin avantajı hızlı  \textbf{TCP}'ye göre. Dezavantajı ise güvensiz.
+
+\textbf{Örneğin}: İnternetten radyo dinleyeceğiz bunu \textbf{UDP} ile dinlemek zorundayız, çünkü GB belli değil.
+\textbf{TCP}'de önemlidir.
+
+\tab Dördüncü katmanın bir başka görevi de üst katmanlardan gelen veriyi bölümleyerek daha küçük parçalara ayırmaktır.
+Bu parçalara \textbf{segment} denir.
+
+\begin{table}[h]
+	\centering
+	\caption{TCP vs UDP}
+	\label{tab:tcp_vs_upd}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		TCP  & UDP \\
+		\hline
+		Güvenli ( oturum temelli ) & Oturum yok \\
+		\hline
+		 Yavaş & Hızlı \\
+		\hline
+	\end{tabular}
+\end{table}
+
 
