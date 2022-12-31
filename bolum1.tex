@@ -88,7 +88,65 @@ Yani bir PC internete bağlanacaksa IP'yi mutlaka biliyor olmalıdır.
 \begin{enumerate}
 	\item[!] \textbf{En küçük birimine paketleme denir.}
 \end{enumerate}
+
 \subsubsection{Taşıma Katmanı}
+\tab İnternette IP üzerinde kullanılan 2 tane 4. katman protokolü vardır.
+Bunlar \textcolor{red}{\textbf{TCP}} ve \textcolor{red}{\textbf{UDP}} dir.
+Bu katman uygulama programları için serial iletişim kanalları kuran katmandır.
+Bu kanallar port adi verilen servis numaralaryla kurulur.
+
+\tab \textcolor{red}{\textbf{TCP}}: bağlantı temelli bir protokoldür.
+Trafik başlamadan önce harsiddi uca müsait olup olmadığı sorulur.
+Bu yönüyle telefon görüşmesine benzer.
+\tab \textcolor{red}{\textbf{UDP}}: bağlanti temelli değildir.
+Trafik doğrudan başlatıldığı için paketlerin iletimi garanti edilmez.
+SMS gönderilmine benzetilebilir.
+Özellikle gercek zamanlı görüntü ve ses taşıma uygulamalarında elverişlidir.
+\textbf{TCP}'ye göre daha \textbf{hızlıdır}.
 
 \subsubsection{Uygulama Seviyesi Katmanları}
+\textbf{Örnek}: 3 way handicap - 3 aşamalı el sıkışma
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=10cm]{images/tcp_example}
+	\caption{TCP Protokolü}
+	\label{fig:tcp_example}
+\end{figure}
+Oturum açıldıktan sonra ilk olacak
+- Veri kaç perioda gönderilecek \\
+1GB filmi \\
+80 segmentte $\Rightarrow$ (1180 2180 .... 80/80) bunlar paketlenir.
+
+\textbf{TCP}'de sadece yavaşlama olacak görürüz.
+En önemli avantajı budur.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=10cm]{images/upd_example}
+	\caption{UDP Protokolü}
+	\label{fig:upd_example}
+\end{figure}
+\textbf{UDP}'nin avantajı hızlı  \textbf{TCP}'ye göre. Dezavantajı ise güvensiz.
+
+\textbf{Örneğin}: İnternetten radyo dinleyeceğiz bunu \textbf{UDP} ile dinlemek zorundayız, çünkü GB belli değil.
+\textbf{TCP}'de önemlidir.
+
+\tab Dördüncü katman bir başka görevi de üst katmanlardan gelen veriyi bölümleyerek daha küçük ??? ayırmaktır.
+Bu ??? segment denir.
+
+\begin{table}[h]
+	\centering
+	\caption{TCP vs UDP}
+	\label{tab:tcp_vs_upd}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		TCP  & UDP \\
+		\hline
+		Güvenli ( oturum temelli ) & Oturum yok \\
+		\hline
+		 Yavaş & Hızlı \\
+		\hline
+	\end{tabular}
+\end{table}
+
 
