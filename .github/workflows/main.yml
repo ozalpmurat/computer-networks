@@ -18,7 +18,7 @@ jobs:
       - name: 'Tar files'
         run: tar -cvf 0BMproje.tar /home/runner/work/computer-networks/
       - name: 'Upload 0BMproje'
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
          name: 0BMproje
          path: 0BMproje.tar    
