@@ -35,8 +35,8 @@
 {\includegraphics[height=297mm,width=210mm]{filigran}}}}
 \RequirePackage{tocloft}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{lastpage}
-\usepackage{fancyhdr}
+\usepackage{lastpage} % Toplam sayfa sayısı için
+\usepackage{fancyhdr} % Toplam sayfa sayısı için
 %\RequirePackage{totpages}
 \RequirePackage{verbatim}
 \flushbottom
