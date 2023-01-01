@@ -17,13 +17,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amssymb,amsmath,amsthm}
 \RequirePackage{graphics,graphicx}
+\RequirePackage{enumitem} %% alfabetik numaralandırmayı kullanmamızı sağlar
 \RequirePackage{float}
 \RequirePackage{multirow}
 \RequirePackage{setspace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
+\setlength{\parskip}{0pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \addto\captionsturkish{\renewcommand\contentsname{İÇİNDEKİLER}}
 \RequirePackage{eso-pic}
