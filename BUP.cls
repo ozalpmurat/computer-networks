@@ -42,5 +42,6 @@
 \flushbottom
 \RequirePackage[unicode, linktoc=all, hidelinks, breaklinks]{hyperref}
 \usepackage{indentfirst} % Paragrafların ilk satırı girintili olsun
+\usepackage{hyperref} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
