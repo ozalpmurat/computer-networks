@@ -11,10 +11,12 @@
 \include{icindekiler}
 \include{sekillistesi}
 \include{tablolistesi}
+\include{Bolum00-tesekkur}
 \pagenumbering{arabic}
 \setcounter{page}{1},
-\pagestyle{fancy} 
-\cfoot{\thepage\ / \thetotalpages}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}% Default \footrulewidth is 0pt
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
 \include{Bolum00-giris}
 \include{bolum1}
 \include{bolum2}
