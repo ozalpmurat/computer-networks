@@ -35,7 +35,9 @@
 {\includegraphics[height=297mm,width=210mm]{filigran}}}}
 \RequirePackage{tocloft}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{totpages}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+%\RequirePackage{totpages}
 \RequirePackage{verbatim}
 \flushbottom
 \RequirePackage[unicode, linktoc=all, hidelinks, breaklinks]{hyperref}

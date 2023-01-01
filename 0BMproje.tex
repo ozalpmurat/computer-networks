@@ -1,6 +1,6 @@
 \documentclass{BUP}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand\tab[1][1cm]{\hspace*{#1}} %% \tab kommutu bir 1 cm boşluk bırakması sağlar.
+\newcommand\tab[1][1cm]{\hspace*{#1}} %% \tab komutu bir 1 cm boşluk bırakması sağlar.
 \begin{document}
 \shorthandoff{=}
 %Bölümler----------------------------------
@@ -11,7 +11,9 @@
 \include{sekillistesi}
 \include{tablolistesi}
 \pagenumbering{arabic}
-\setcounter{page}{1}
+\setcounter{page}{1},
+\pagestyle{fancy} 
+\cfoot{\thepage\ / \pageref{LastPage}}
 \include{Bolum00-giris}
 \include{bolum1}
 \include{bolum2}
