@@ -266,8 +266,43 @@ Bir bilgisayr kendi yayın alanında olmayan başka bir bilgisayarla haberleşme
 \subsection*{ÇARPIŞMA ALANI}
 Bir yayın alanı içerisinde bir veya birden fazla çarpışma alanı bulunur.Aynı çarpışma alanındaki bilgisayarlar birbirine gelen her paketi görürler,ancak sadece kendi mac adreslerine gelen her paketi görürler.
 Çarpışma alanı aynı anda bir pc tarafından kullanılabilir.\\
-İki PC aynı anda paket göndermek isterse çarpışma(collision) oluşur.Adını burdan alır.
-%SORULAR YAZILACAK
+İki PC aynı anda paket göndermek isterse çarpışma(collision) oluşur.Adını burdan alır.\\
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm,height=6cm]{images/soru_1}
+    \caption{Soru1}
+    \label{fig:lan_vlan_ornegi1}
+\end{figure}
+ 
+1)Kaç tane yayın alanı vardır? 2 \\
+2)Kaç tane çarpışma alanı vardır? 3\\
+3)Her çarpışma alanında kaç tane bilgisayar vardır?\\
+4)Her yayın alanında kaç tane bilgisayar vardır?\\
+Birinci yayın alanında 3 tane\\
+İkinci yayın alanında 8 tane \\
+
+*YAYIN ALANI:mecburen ağ geçidi kullanılır.\\
+*ÇARPIŞMA ALANI:Birbirlerinin verisini görecekler.
+
+
+\begin{figure}[ht]
+    \centering
+
+    \includegraphics[width=8cm,height=6cm]{images/Soru2}
+    \caption{Soru2}
+    \label{fig:lan_vlan_ornegi}
+\end{figure}
+A ile B aynı anda paket gönderebilir mi? 
+Yaçarpışma olur ya da sıra\\
+B ile C aynı anda paket gönderebilir mi?\\
+ B ile C aynı Pc gönderirse olur,ancak farklı olursa  aralarındaki topolojileri bilmediğimiz için bilemeyiz.\\
+C yayın mesajı gönderdiğinde tüm pc'lere gider mi?\\
+Evet tüm Pclere gider.\\
+B ile C aynı arasındaki trafiği F görür mü?\\
+Normal zamanda göremez.Ancak örneğin aynalama gibi işlemerde görebilir.\\
+   
+
 Anahtar üzerinde pc'lerin haricinde dış dünya ile iletişim kurmak için bağlantı yapılan porta "upink" poru denir.
 Anahtarın bilgisayara bağlanan normal portlarına(bakır portlara 45 port) "giriş portu" denir.Genel olarak 100mb/s-1000mb/s  olurken "uplink portları" genellikle daha kapasiteli olur.
 Anahtarları birbirinden ayıran bir diğer özellikte "demir gücü kapasitesi"anahtarın aynı  anda çevirebileceği trafik miktarına "switchfabric" ya da "through put"denir.
@@ -285,7 +320,18 @@ Ancak anahtarlar da yayın trafiğini geçebilirer.Bünyesinde çok fazla anahta
 Klasik yöntemde herbir ağ için bir ağ geçidi kullanılması zorunludr.Dolayısıyla ciihazların,bağlantıları ve topolojilerin sınırları en önemli kısıtlardır.Bir vlan yapısında ise fiziksel bir müdahale olmadan hatta uzaktan bağlanarak ağ istenilen şekilde özelleştirilebilir.
 \textbf{Sanal Ağlar(VLAN)}\\
 yönlendirici,Kablosuz Ap,Güvenlik Duvarı,PC vb.
-%SEKİL ÇİZİLECEK
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm,height=6cm]{images/Soru3}
+    \caption{VLAN}
+    \label{fig:vlan_ornegi}
+\end{figure}
+
+Aynı ağ her yerde kullanılabiliyor.\\
+Geleneksel yapıda ağları birbirinden ayrılması için ağ geçidi kullanılır\\
+Bir anahtarda çok sayıda ağ(VLAN) kullanabiliyoruz.
+
 \subsection*{SANAL AĞ(VLAN)KULLANMANIN AVANTAJLARI}
 \begin{enumerate}[label=\alph*)]
     \item \textbf{Ağları Bölerek}: Her bir ağdaki pc sayısını azaltarak yayın alanını daraltmak ve performansı azaltmak
@@ -295,6 +341,14 @@ yönlendirici,Kablosuz Ap,Güvenlik Duvarı,PC vb.
     Ağ geçidi tanımı yönlendirme,prptokol çevirme veya güvenlik uygulaması gibi işlemleri yapan tüm cihazları kapsar.Sıradan bir PC ,3.katman(L3) anahtar,yönlendirici veya özel üretilmiş donanım olabilir.\\
     Ağ geçitleri üzerindeki ağ arayüzüne(interface) bağlı olarak ethernet,Frame Relay,ATM,PPPoE gibi protokollerin hepsinin kullanılabilme özelliğine sahip olduğundan bazı kaynaklardan protokol çevirici olarak adlandırılır.
 \end{enumerate}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm,height=6cm]{images/Vlanlar}
+    \caption{LAN-VLAN}
+    \label{fig:lan_vlan_sorusu}
+\end{figure}
+
+
 \section*{VLAN ANAHTARLAR}
 Üzerinde sanal ağlar tanımlanabilen anahtarlardır.Sıradan anahtarlarda üstün olmasının en önemli sebebi ayarlanabilir olmasıdır.
 Bu nedenle yönetilebilir anahtarlar da denmektedir.Vlan anahtarın üzerindeki portlar gruplandırılarak birden çok sanal ağ oluşturulabilir.Her bir sanal anahtar ayrı bir ağ gibi çalıştırılabilir.Bu sanal ağlara "VLAN" denir.Her bir vlan'ın kendine özel Vlan Id isminde bir tanımlayıcı numarası olur.
@@ -302,4 +356,29 @@ Anahtarları fizikse portları Vlan ID'leri ile eşleştirilerek ağlar düzenle
 Bazı durumlarda VLAN yapılandırılması portlardan ve fiziksel bağlantılardan bağımsız olarak yapılabilir.Örneğin pc'nin MAC adreslerine göre ya da kullanıcı kimlik doğrulama yöntemine göre (parola,parmak izi ) Vlan ataması yapılabilir.\\
 Vlan anahtarlar kullanıldığında birden fazla sanal ağı oluşturursa bu alt ağlar arasında trafiğin yönlendirilmesi gerekmektedr.Bu yönlendirme işlemi anhtarın kendi üzerinde veya ayrı bir yönlendirici cihazla yapmak mümkündür.\\
 Anahtar üzerinde yönlendirme yapılacaksa 3 katmanda(L3) çakıştırılacak bir anahtar kullanılmalıdır.\\
-İki bigisayar aralarında haberleşemez
+trunk: Anahtarın herhangi bir portundan birden fazla VLAN taşınması gerekiyorsa o port trunk olarak yapılandırılmalı.Bu bağlantıya da "trunk" denir.
+\section*{ANAHTAR KULLANIM MİMARİSİ}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=8cm,height=6cm]{images/anahtarkullanımmimarisi}
+    \caption{Anahtar-Kullanım-Mimarisi}
+    \label{fig:anahtar_kullanım_mimarisi}
+\end{figure}
+
+1)OMURGA(CORE)\\
+Üçüncü katman veya daha üstü anahtar kullanılır.Genellikle tüm Vlanlar burda oluşturulur.Ağın tüm yönlendirme yükü bunun üzerindedir.Bu nedenle genellikle yedekli kullanıır.Performansı çok fazladır.Binalar arası bağlantıyı sağlamak için kullanılır.Bu nedenle çok sayıda fiberoptik port sergilerler.Modüler yapıdadırlar,yani port sayıları ve türleri modüler halinde takılıp çıkartılabilir.Modülerin takıldığı yere "şase" denir.Fiziksel olarak çok yer kaplarlar ve pahalıdırlar.\\
+2)Dağıtım(Distrubution)Katmanı \\
+Omurga anahtarında bağlı olan ve binaların içerisinde küçük bir omurga gibi düşünebileceğimiz anahtarlardır.Omurga anahtarına göre daha ucuzdur.L2 veya L3 olabilir.\\
+3)KENAR
+Son kullanıcı cihazlarının bağlandığı anahtarlardır.Bu nedenle özel görevleri olabilir.\\
+İhtiyaca göre :\\
+802.1x(Kimlik Doğrulama)\\
+PoE(802.3aaf) Enerji göndermek için kullanılır.\\
+Captive Portal\\
+Örnek:20 portlu bir VLAN anahtar 4  portlu bir ağ geçidine bağlanabiliyorAşağıdaki durumları yorumlayınız.\\
+1)Her portun port sayısı 5'er tanedir.\\
+Böyle bir zorunluluk yoktu\r.\\
+2)Bir valan anahtar üzerine doğrudan bağlanacak PC sayısı 16'dır\\
+16 tane de olabilir daha fazla da olabilir.\\
+3)Her vlana atanmış portlar ardışık olmak zorundadır\\
+Öyle bir şey yok.Esneklik özelliği vardır . 
