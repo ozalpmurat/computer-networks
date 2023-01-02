@@ -1,4 +1,4 @@
-name: Télécharger et commit le fichier PDF
+name: Add latest PDF on Master branch
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build_and_upload:
+  build_and_publish:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
@@ -15,26 +15,20 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: 0BMproje.tex
-      - name: Télécharger et commit le fichier PDF
-        uses: actions/create-or-update-file@v1
+      - name: 'Tar files'
+        run: tar -cvf 0BMproje.tar /home/runner/work/computer-networks/
+      - name: 'Upload 0BMproje'
+        uses: actions/upload-artifact@v3
         with:
-          # The path to the file to upload.
-          # This can be a file or a directory.
-          # If a directory is specified, all of its contents will be uploaded.
-          path: 0BMproje.pdf
-          # The name of the file on GitHub.
-          # If a directory is specified in the 'path' field, this field will be ignored.
-          filename: 0BMproje.pdf
-          # The commit message.
-          # If not specified, a default commit message will be used.
-          commit_message: Ajout du fichier PDF
-          # The name of the branch.
-          # If not specified, the default branch will be used.
-          branch: master
-          # The name of the repository.
-          # If not specified, the current repository will be used.
-          repository: computer-networks
-          # The name of the owner.
-          # If not specified, the current user will be used.
-          owner: ikhalilatteib
-
+         name: 0BMproje
+         path: 0BMproje.tar    
+      - uses: actions/download-artifact@v3
+        with:
+          name: 0BMproje
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add /home/runner/work/computer-networks/computer-networks/0BMproje.pdf -f
+          git commit -m "Güncel PDF eklendi"
+          git push
