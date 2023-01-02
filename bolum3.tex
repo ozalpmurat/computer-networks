@@ -219,39 +219,46 @@ F/O kablo testleri "OTDR" isimli cihaz  ile yapılır.
 Yerel ağlarda  haberleşmeyi sağlayan ethernet çerçevesinde(frame) 48 bitlik adres kullanılır.
 MAC adresi 16'lık sayı sisteminde 12 tane karakter ile gösterilir.
 
+
 \begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|}
-		\hline
-		16 bit & -------- & 2^4 0000 \\
-		\hline
-		48 & -------- & 16 tane 2^4\\
-	\end{tabular}
+    \centering
+    \begin{tabular}{ll}
+        16 bit & $\rightarrow$  $2^4$ 0000    \\
+        48     & $\rightarrow$ 16 tane  $2^4$ \\
+    \end{tabular}
 \end{table}
-           
+
 İlk 6 karakterlik ilk 24 bit üretici kodunun son 6 karakter ise seri numarasını belirtir.Bir üretici aynı MAC adresiini birden fazla karar vermez.Dolyısıyla MAC adresleri dünyada tektir.
- *Birden fazla aynı MAC adresi aynı ağ üzerinde(LAN,VLAN vb) olmamalıdır.
- Windows---> cmd\\
-             ipconfig\\
-             getmac\\
- Linux---> ifconfig
- \textbf{Adres Çözümleme} Ağdaki Bilgisayarlar başlangıçta diğer bilgisayarların mac adreslerini bilemez.
- MAC adreslerini öğrenmek için;
- \subsection*{ARP(Adress Resulotion Protocol) (Adres Cözümleme Protokolü)}
- Bu protokol ikinci katmanda çalışır.Ağdaki Bilgisayarların MAC adreslerini öğrenmek ve bu cihazdaki ARP tablosunu güncellemek en temel görevdir.
- SORU**\\
- ARP tablosunda;statik kayıt ne işe yarar?
- 1970 de bilgisayar ağları tasarlanırken gelişimi hakkında kesin bilgi olmadığında statik(önü açık ) bırakılmıştır.
- \subsection*{YAYIN ADRESİ(BROADCAST ADDRESS)}\\ 
- Tüm yerel ağı temsil eden tek bir adrestir .Bu adrese gönderilen paket ağdaki tüm cihalara aynı anda uaştırılır.İkinci veya üçüncü katmanda yayın mesajı gelir.Yayın mesajlarında ne gibi fark vardır?
- \begin{figure}[!ht]
-  \includegraphics{images/Yayınadresitablosu}
- \caption{fibersonlandırma}
- \label{fig:fosonlandırma}
+* Birden fazla aynı MAC adresi aynı ağ üzerinde(LAN,VLAN vb) olmamalıdır.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+        \textbf{Windows}                    & $\rightarrow$  CMD                           \\
+        & $\rightarrow$  ipconfig                      \\
+        & $\rightarrow$  getmac                        \\
+        \textbf{ \textcolor{violet}{Linux}} & $\rightarrow$ \textcolor{violet}{ifconfig} \\
+    \end{tabular}
+\end{table}
+
+\textbf{Adres Çözümleme} Ağdaki Bilgisayarlar başlangıçta diğer bilgisayarların mac adreslerini bilemez.
+MAC adreslerini öğrenmek için;
+\subsection*{ARP(Adress Resulotion Protocol) (Adres Cözümleme Protokolü)}
+Bu protokol ikinci katmanda çalışır.Ağdaki Bilgisayarların MAC adreslerini öğrenmek ve bu cihazdaki ARP tablosunu güncellemek en temel görevdir.
+
+SORU**
+ARP tablosunda;statik kayıt ne işe yarar?
+1970 de bilgisayar ağları tasarlanırken gelişimi hakkında kesin bilgi olmadığında statik(önü açık ) bırakılmıştır.
+\subsection*{YAYIN ADRESİ(BROADCAST ADDRESS)}
+Tüm yerel ağı temsil eden tek bir adrestir .Bu adrese gönderilen paket ağdaki tüm cihalara aynı anda uaştırılır.İkinci veya üçüncü katmanda yayın mesajı gelir.Yayın mesajlarında ne gibi fark vardır?
+\begin{figure}[!ht]
+    \includegraphics{images/Yayınadresitablosu}
+    \caption{fibersonlandırma}
+    \label{fig:fosonlandırma}
 \end{figure}
 \\
 İkinci katmanda yayın adresi göndermek için çerçevedeki hedef mac adresindeki kısmında tüm bitler 1 yapılır.
-Dolayısıyla hedef  adresi FF:FF:FF:FF:FF:FF yapılır.Ağa yeni bağlanan her cihaz kendi mac ve IP adreslerini içeren bir yayın mesajı gönderir.
+Dolayısıyla hedef adresi FF:FF:FF:FF:FF:FF yapılır.Ağa yeni bağlanan her cihaz kendi mac ve IP adreslerini içeren bir yayın mesajı gönderir.
 Her bilgisayarda ve anahtarda aynı ağdaki cihazlarla tutulan IP ve MAC adreslerinin tablosuna "ARP TABLOSU" denir. ARP Tablosu dinamik olarak güncellenir,ancak istenirse elle düzenleme ya da statik kayıt işlemi yapılabilir.
 \subsubsection*{YAYIN ALANI}
 Bilgisayarların doğrudan mac adresleriyle haberleştikleri alandır.Bir yayın paketi gönderildiğinde bunu alabilen tüm cihazlar aynı yayın alanındadır.
@@ -273,28 +280,26 @@ Ancak anahtarlar da yayın trafiğini geçebilirer.Bünyesinde çok fazla anahta
 *Donanım keşif mesajları\\
 *Ip alma (DHCP)mesajları\\
 *Virüs gibi kötü yazılımlar\\
-\subsection*{Alt Ağa Bölmenin temel olarak iki yolu vardır;}
-\textbf{1)Klasik  Yöntem (Fiziksel Ağ Geçidi Kullanma)}\\
+\subsection*{Alt Ağa Bölmenin temel olarak iki yolu vardır}
+\subsubsection*{Klasik Yöntem (Fiziksel Ağ Geçidi Kullanma)}
 Klasik yöntemde herbir ağ için bir ağ geçidi kullanılması zorunludr.Dolayısıyla ciihazların,bağlantıları ve topolojilerin sınırları en önemli kısıtlardır.Bir vlan yapısında ise fiziksel bir müdahale olmadan hatta uzaktan bağlanarak ağ istenilen şekilde özelleştirilebilir.
 \textbf{Sanal Ağlar(VLAN)}\\
 yönlendirici,Kablosuz Ap,Güvenlik Duvarı,PC vb.
 %SEKİL ÇİZİLECEK
 \subsection*{SANAL AĞ(VLAN)KULLANMANIN AVANTAJLARI}
-\textbf{1)Ağları Bölerek}\\
-Her bir ağdaki pc sayısını azaltarak yayın alanını daraltmak ve performansı azaltmak\\
-\textbf{2)Esneklik}\\
- Farklı coğrafyadaki bilgisayarlar aynı vlanda oabilir ya da aynı anahtar üzerinde birden fazla farklı vlan olabilir.\\
-\textbf{3)Güvenlik}\\ Birbirine erişimi kısıtlamaması gereken ağlar arasında erişim denetim listeleri(Access Control List(ACL)) oluşturularak erişim kısıtlanabilir.\\
-\textbf{4)İşletme Kolaylığı}\\
-Ağlar küçük olduğunda sorunu çözmek kolaylaşır.Yani ağ eklemek ve mevcut ağları düzenlemek kolaylaşır.Ağ  isimleri,IP grupları ve kullanım yerleri eşleştirilerek hiyerarşik  sistemler oluşturulabilir.\\
-Ağ geçidi tanımı yönlendirme,prptokol çevirme veya  güvenlik uygulaması gibi işlemleri yapan tüm cihazları kapsar.Sıradan bir PC ,3.katman(L3) anahtar,yönlendirici veya özel üretilmiş  donanım olabilir.\\
-  Ağ geçitleri üzerindeki  ağ arayüzüne(interface) bağlı olarak ethernet,Frame Relay,ATM,PPPoE gibi protokollerin hepsinin kullanılabilme özelliğine sahip olduğundan bazı kaynaklardan protokol çevirici olarak adlandırılır.
-  %ŞEKİL GELECEK
-  \section*{VLAN ANAHTARLAR}
-  Üzerinde sanal  ağlar tanımlanabilen anahtarlardır.Sıradan anahtarlarda üstün olmasının en önemli sebebi ayarlanabilir olmasıdır.
-  Bu  nedenle yönetilebilir anahtarlar da denmektedir.Vlan anahtarın üzerindeki portlar gruplandırılarak birden çok sanal ağ oluşturulabilir.Her bir sanal anahtar ayrı bir ağ gibi çalıştırılabilir.Bu sanal ağlara "VLAN" denir.Her bir vlan'ın kendine özel Vlan Id isminde bir tanımlayıcı numarası olur.
-  Anahtarları fizikse portları Vlan ID'leri ile eşleştirilerek ağlar düzenlenir.Aynı vlan numrasına sahip portlar aynı sanal ağa aittir.\\
-  Bazı durumlarda VLAN yapılandırılması portlardan ve fiziksel bağlantılardan bağımsız olarak yapılabilir.Örneğin pc'nin MAC adreslerine göre ya da kullanıcı kimlik doğrulama yöntemine göre (parola,parmak izi ) Vlan ataması  yapılabilir.\\
-  Vlan anahtarlar kullanıldığında birden fazla sanal ağı oluşturursa bu alt ağlar arasında trafiğin yönlendirilmesi gerekmektedr.Bu yönlendirme işlemi anhtarın kendi üzerinde veya ayrı bir yönlendirici cihazla yapmak mümkündür.\\
-  Anahtar üzerinde yönlendirme yapılacaksa 3 katmanda(L3) çakıştırılacak bir anahtar kullanılmalıdır.\\
-  İki bigisayar aralarında haberleşemez 
+\begin{enumerate}[label=\alph*)]
+    \item \textbf{Ağları Bölerek}: Her bir ağdaki pc sayısını azaltarak yayın alanını daraltmak ve performansı azaltmak
+    \item \textbf{Esneklik}: Farklı coğrafyadaki bilgisayarlar aynı vlanda oabilir ya da aynı anahtar üzerinde birden fazla farklı vlan olabilir.
+    \item \textbf{Güvenlik}: Birbirine erişimi kısıtlamaması gereken ağlar arasında erişim denetim listeleri(Access Control List(ACL)) oluşturularak erişim kısıtlanabilir.
+    \item \textbf{İşletme Kolaylığı}: Ağlar küçük olduğunda sorunu çözmek kolaylaşır.Yani ağ eklemek ve mevcut ağları düzenlemek kolaylaşır.Ağ isimleri,IP grupları ve kullanım yerleri eşleştirilerek hiyerarşik sistemler oluşturulabilir.\\
+    Ağ geçidi tanımı yönlendirme,prptokol çevirme veya güvenlik uygulaması gibi işlemleri yapan tüm cihazları kapsar.Sıradan bir PC ,3.katman(L3) anahtar,yönlendirici veya özel üretilmiş donanım olabilir.\\
+    Ağ geçitleri üzerindeki ağ arayüzüne(interface) bağlı olarak ethernet,Frame Relay,ATM,PPPoE gibi protokollerin hepsinin kullanılabilme özelliğine sahip olduğundan bazı kaynaklardan protokol çevirici olarak adlandırılır.
+\end{enumerate}
+\section*{VLAN ANAHTARLAR}
+Üzerinde sanal ağlar tanımlanabilen anahtarlardır.Sıradan anahtarlarda üstün olmasının en önemli sebebi ayarlanabilir olmasıdır.
+Bu nedenle yönetilebilir anahtarlar da denmektedir.Vlan anahtarın üzerindeki portlar gruplandırılarak birden çok sanal ağ oluşturulabilir.Her bir sanal anahtar ayrı bir ağ gibi çalıştırılabilir.Bu sanal ağlara "VLAN" denir.Her bir vlan'ın kendine özel Vlan Id isminde bir tanımlayıcı numarası olur.
+Anahtarları fizikse portları Vlan ID'leri ile eşleştirilerek ağlar düzenlenir.Aynı vlan numrasına sahip portlar aynı sanal ağa aittir.\\
+Bazı durumlarda VLAN yapılandırılması portlardan ve fiziksel bağlantılardan bağımsız olarak yapılabilir.Örneğin pc'nin MAC adreslerine göre ya da kullanıcı kimlik doğrulama yöntemine göre (parola,parmak izi ) Vlan ataması yapılabilir.\\
+Vlan anahtarlar kullanıldığında birden fazla sanal ağı oluşturursa bu alt ağlar arasında trafiğin yönlendirilmesi gerekmektedr.Bu yönlendirme işlemi anhtarın kendi üzerinde veya ayrı bir yönlendirici cihazla yapmak mümkündür.\\
+Anahtar üzerinde yönlendirme yapılacaksa 3 katmanda(L3) çakıştırılacak bir anahtar kullanılmalıdır.\\
+İki bigisayar aralarında haberleşemez
