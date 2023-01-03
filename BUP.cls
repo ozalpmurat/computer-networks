@@ -39,7 +39,8 @@
 \usepackage{fancyhdr} % Toplam sayfa sayısı için
 %\RequirePackage{totpages}
 \RequirePackage{verbatim}
-\flushbottom
+%\flushbottom https://tex.stackexchange.com/questions/65355/flushbottom-vs-raggedbottom
+\raggedbottom
 \RequirePackage[unicode, linktoc=all, hidelinks, breaklinks]{hyperref}
 \usepackage{indentfirst} % Paragrafların ilk satırı girintili olsun
 \usepackage{hyperref} 

@@ -1,4 +1,5 @@
 \section{IP ADRESİ VE HESAPLAMALARI} %Notlarda 27.sayfa
+
 32 bit uzunluğa sahip olan IP adresi 2 temel bileşene sahiptir. 
 
 \begin{enumerate}
@@ -32,7 +33,7 @@ ağ tanımlayıcısı           &  host tanımlayıcısı \\
 
 \textbf{ÖRNEK : } 16 tane IP adresini bölüyoruz. (${2^4}$ bit ) 
 
-Görsel-1
+\begin{figure}[!ht] \centering \includegraphics[width=10cm]{images/gorsel28sayfa} \label{fig:gorsel} \end{figure}
 
 \textbf{NOT : }Ağlardaki bilgisayar sayıları(kullanılabilecek ip sayıları) belirlenirken maksimum kapasite 2'nin kuvveti ${2^n}$ %katı yazılmıştı, kuvveti olarak değiştirdim
 alınarak belirlenir. 
@@ -139,7 +140,7 @@ Ağ biti & Host bitleri & Her ağdaki IP sayısı \\
 
 \textbf{NAT(Network Address Translation)}
 
--Görsel NAT
+\begin{figure}[!ht] \centering \includegraphics[width=10cm]{images/gorsel31sayfa} \label{fig:NAT} \end{figure}
 
 
 \subsection{Ağ Maskesi(Netmask)}
@@ -175,7 +176,7 @@ IP adresi ve ağı temsil eden bit sayısı belirli olan bir ağ birden fazla k�
 
 \textbf{ÖRNEK : } 
 
-\textbf{a)} 10.0.0.0/24 ağını iki ayrı ağa bölelim.
+\textbf{a)} 10.0.0.0/24 ağını iki ayrı ağa bölünüz.
 
 
 
@@ -189,14 +190,14 @@ IP adresi ve ağı temsil eden bit sayısı belirli olan bir ağ birden fazla k�
 \textbf{a)}
 \begin{itemize}
 \item[] Ağ : 10.0.0.0/24
-\item[] Ağ maskesi : 255.255.255.0 (24 tane 1 8 tane 0 var. $2^8$ tane IP var)
-\item[] Ağ maskesi : 11111111.11111111.11111111.00000000 ağ maskesinde 1 bit sağa kaydırdığımızda 25 tane 1 7 tane 0 olacaktır. $2^7=128$ tane IP elde edilir. 
+\item[] Ağ maskesi : 255.255.255.0 (24 tane 1, 8 tane 0 var. $2^8$ tane IP var)
+\item[] Ağ maskesi : 11111111.11111111.11111111.00000000 ağ maskesinde 1 bit sağa kaydırdığımızda 25 tane 1, 7 tane 0 olacaktır. $2^7=128$ tane IP elde edilir. 
 \end{itemize} 
 
-1 bit kayarsa $2^1=2$ alt ağ
-2 bit kayarsa $2^2=4$ alt ağ
-\vdots
-n bit kayarsa $2^n$ alt ağ elde edilebilir. 
+1 bit kayarsa $2^1=2$ alt ağ,
+2 bit kayarsa $2^2=4$ alt ağ,
+$\hdots$
+,n bit kayarsa $2^n$ alt ağ elde edilebilir. 
 
 10.0.0.0/25 notasyonuna sahip bir ağda 1.alt ağ 10.0.0.0 IP adresiyle başlar. 128 adet IP tanımlanır. Son IP 10.0.0.127 olur. 2. alt ağ ise 10.0.0.128 IP adresinden 10.0.0.255 IP adresine kadar 128 adet IP alabilir. 
 
@@ -282,15 +283,190 @@ Yeni ağ maskesi  & : &11111111.11111111.11111111.11100000 ($2^5=32$ IP var.) \\
                  & : & 255.255.255.224   \\
 \end{tabular}
 
-\begin{tabular}{ll}
+\begin{tabular}{cc}
+\begin{tabular}{|cc|}
+\hline 
 10.0.0.0 & 10.0.0.64 \\
 10.0.0.31 & 10.0.0.127\\
+\hline 
+
+\end{tabular}
+&
+\begin{tabular}{|cc|}
+\hline 
+10.0.0.32 & 10.0.0.128 \\
+10.0.0.63 & 10.0.0.191 \\
+\hline 
+\end{tabular} \\
 \end{tabular}
 
+\textbf{ÖRNEK : } 10.0.0.0/22'yi 4 alt ağa bölünüz. 
+
+11111111.11111111.11111100.00000000 $2^{10}=1024$ tane IP var. 
+
+Ağ maskesi : 255.255.252.0
+
+Yeni alt ağ maskesi : 255.255.255.0(2 bit kaydı.$2^{8}=256$ IP var.)
+
+Yeni CIDR gösterimi -> 10.0.0.0/24 olmalıdır.
+
+10.0.0.0 -> 10.0.0.255
+
+10.0.1.0 -> 10.0.1.255
+
+10.0.2.0 -> 10.0.2.255
+
+10.0.3.0 -> 10.0.3.255
+
+\textbf{ÖRNEK : } /17 şeklinde gösterilen ağın maskesi nedir?
+
+11111111.11111111.10000000.00000000  = 255.255.128.0 şeklindedir. 
+
+\textbf{ÖRNEK : } 10.10.0.0 ve 255.255.0.0 şeklindeki ağda kaç host olabilir?
+
+$2^{16}-2$ adet host olabilir. 
+
+\textbf{NOT : } Özel IP ile ??? 127 ile başlayan IP ler kullanılamazlar.  Localhost : 127.0.0.1 bilgisayarın kendisini temsil eder. 
+
+169.254.0.0 Windows işletim sisteminin IP alınamadığında kendi IP bloğundan otomatik olarak verdiği IP adresidir. 
 
 
+\textbf{ÖRNEK : } Bir şirkete 192.168.100.0/24 şeklinde IP aralığı tahsis edilmiştir. Şekilde sistem yöneticisi ağdaki aşırı yayın trafiğinin sorun çıkardığını düşünerek ağı alt ağlara bölmek istiyor. Birimlerin PC sayısı aşağıdaki gibidir. Teknik birim=70, Pazarlama=40, Muhasebe=20, İdari birim=25  
 
+\begin{figure}[!ht] \centering \includegraphics[width=10cm]{
+images/sayfa36} \label{fig:Şirket örneği 1} \end{figure}
 
+\subsection{Ağ Geçidi IP Adresleri }
 
+Her ağ için ilk IP adresi ağ adresi, son IP adresi yayın adresi olduğunu biliyoruz. Kural olmamakla birlikte genel teamüllere göre ağ adresinden sonraki ilk IP adresi(kullanılabilecek ilk host adresi) ağ geçidi olarak belirlenir. Herhangi bir host adresi ağ geçidi olarak belirlensede hiçbir problem  olmaz. 
 
+\textbf{NOT : } IP adresinin ve ağın son IP adresi değiştirilemez. 
 
+\textbf{NOT : } Ağ geçidi IP adresi herbir ağın doğrudan bağlı olduğu yönlendirici arayüzünde(interface, ara birim, ethernet kartı, NIC(Network Interface Card)) tanımlı olan IP adresi olmak zorundadır. 
+
+Günümüzde kullanılışı : 
+
+\begin{figure}[!ht] \centering \includegraphics[width=10cm]{
+images/sayfa36sonresim} \label{fig:Şirket örneği 2} \end{figure}
+
+\underline{Soruya gelirsek : }
+
+\begin{tabular}{|c|c|}
+\hline
+128 Teknik Birim 
+&
+\begin{tabular}{c|c}
+\multicolumn{2}{c}{64 Pazarlama} \\
+\hline
+32 Muhasebe & 32 İdari birim \\
+
+\end{tabular}\\
+\hline
+\end{tabular}
+
+Ağ adresi : 192.168.0.0
+
+Yayın adresi : 192.168.100.127
+
+\begin{tabular}{|c|c|}
+\hline
+Teknik  
+&
+\begin{tabular}{l}
+192.168.100.0(Ağ adresi) \\
+192.168.100.127(Yayın adresi)
+\end{tabular}\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+\hline
+Pazarlama  
+&
+\begin{tabular}{l}
+192.168.100.128 \\
+192.168.100.191 \\
+\end{tabular}\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+\hline
+Muhasebe  
+&
+\begin{tabular}{l}
+192.168.100.192 \\
+192.168.100.223 \\
+\end{tabular}\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|c|c|}
+\hline
+İdari birim
+&
+\begin{tabular}{l}
+192.168.100.224 \\
+192.168.100.255\\
+\end{tabular}\\
+\hline
+\end{tabular}
+
+Alt ağ maskesi ise teknik:255.255.255.0,
+
+ pazarlama:255.255.255.192,
+ 
+  muhasebe:255.255.255.224,
+  
+   idari:255.255.255.255 ??? şeklindedir. 
+   
+\textbf{ÖRNEK : } 10.50.100.200/25 şeklinde IP adresi tahsis edilmiş bir bilgisayarın ağ adresi ve yayın adresi nedir? 
+
+32-25=7 olduğundan  $2^7 =128$ tane IP var. 
+
+\begin{tabular}{lll}
+ & 10.50.100.200 &\\
+x&255.255.255.128& \\
+\hline
+ & 10.50.100.128 & ağ adresi \\
+ & 10.50.100.255 & yayın adresi 
+\end{tabular}    
+
+\textbf{ÖRNEK : } Aşağıdaki bilgisayarlardan hangileri ağ geçidine ihtiyaç duymadan haberleşirler. 
+
+\begin{center}
+\begin{tabular}{rlrl}
+   &               &\underline{Ağ adresi} & \\
+a) & 10.0.0.120/25 & 10.0.0.0 & -128 \\
+b) & 10.0.0.121/24 & 10.0.0.0 & -256 \\
+c) & 10.0.0.254/24 & 10.0.0.0 & -256 \\
+d) & 10.0.0.1/24 & 10.0.0.0 & -256 \\
+e) & 10.0.0.253/25 & 10.0.0.0 & -128 \\
+
+\end{tabular}
+
+\end{center}
+
+\textbf{NOT : } X'in Y ile aynı ağda olup olmadığını anlamak için X bilgisayarı Y nin IP adresiyle kendi ağ maskesini çarpar. Kendi ağ adresiyle karşılaştırır. 
+
+A'nın B ile haberleşmesi : 
+
+\begin{tabular}{lllll}
+B'nin IP adresi & &10.0.0.121 &\\
+A'nın ağ maskesi &x&10.0.0.128& \\
+\hline 
+ & & 10.0.0.0 & \\
+\end{tabular} 
+
+Çıkan sonuç A'nın ağ adresiyle aynı olduğundan haberleşirler. 
+
+A'nın C ile haberleşmesi : 
+
+\begin{tabular}{lllll}
+C'nin IP adresi & &10.0.0.254 &\\
+A'nın ağ maskesi &x&10.0.0.128& \\
+\hline 
+ & & 10.0.0.128 & \\
+\end{tabular} 
+
+Çıkan sonuç A'nın ağ adresiyle aynı olmadığından haberleşemezler.

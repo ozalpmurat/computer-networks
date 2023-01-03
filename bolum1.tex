@@ -1,5 +1,5 @@
 \section{OSI MODELİ (OSI KATMANLARI)}
-\tab Bir bilgisayardan gönderilen bir bilginin diğer bilgisayara nasıl ulaştığını anlatmak için tasarlanmıştır.
+Bir bilgisayardan gönderilen bir bilginin diğer bilgisayara nasıl ulaştığını anlatmak için tasarlanmıştır.
 İletişimi 7 katmanlı mimarı ile tanımlar.
 Ağ elemanlarının nasıl çalıştığını ve verinin iletimi sırasında hangi işlemlerden gectiğini kavramak için kullanılan rehberdir.
 OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden çalışan program yazmak ve ağ sorunlarını çözmek için önemlidir.
@@ -16,7 +16,7 @@ OSI Katmanlarının mantığını anlamak ağları planlamak, ağ üzerinden ça
 \end{enumerate}
 
 \subsubsection{Fiziksel Katmanlar}\label{subsubsec:fiziksel_katmanlar}
-\tab Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır.
+Haberleşme kanalının elektriksel ve mekanik olarak tanımlandığı katmandır.
 Bir uçtan gönderilen sinyalin karşı uca iletilmesinden sorumludur.
 Sayısal haberleşmede en küçük birim bit olduğundan bu katmanın hızı \textbf{(bps) (b/s) bit/saniye} cinsindendir.
 Birinci katman donanımları:
@@ -28,7 +28,7 @@ Birinci katman donanımları:
 \end{enumerate}
 
 \subsubsection{Veri Bağı Katmanı}\label{subsubsec:veri_bagi_katmani}
-\tab Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır.
+Verinin fiziksel ortamdan güvenli bir şekilde taşınmasından sorumlu olan katmandır.
 Kaynaktan çıkan verilerin(bitler) hedefe ulaşan verilerle aynı olup olmadığını sınayan sistemler kullanılır.
 En çok kullanılan hata bulma algoritmaları \textbf{eşlik biti (parity check)} ve \textbf{CRC algoritmasıdır}.
 Verinin doğru olup olmadığına bakmaz, sadece sağlamlığını kontrol eder.
@@ -62,7 +62,7 @@ Anahtarlar portlarına bağlı olan cihazların MAC adreslerini bilmek zorundad�
 Bu şekilde iki farklı portu arasındaki trafiği diğer cihazlar görmeden aktarabilirler. \textbf{HUB'lardan en önemli farkı budur}.
 
 \subsubsection{AĞ Katmanı (IP)}\label{subsubsec:ag_katmani}
-\tab İnternet dünyanın farklı yerlerindeki ağlar üzerinden erişebilir kiler katman budur.
+İnternet dünyanın farklı yerlerindeki ağlar üzerinden erişebilir kiler katman budur.
 Kaynak ve hedef olarak IP\footnote{IP => Internet Protocol} adresi kullanılır.
 IP yönlendirilebilir bir protokol olduğundan her türlü veri aağı üzerinden haberleşmeye olarak sağlanır.
 Bu katman en önemli görevi yönlendirme işlemidir.
@@ -89,7 +89,7 @@ Bazı anahtarlar üçüncü katmanda da çalışabilmektedir.
 \end{enumerate}
 
 \subsubsection{Taşıma Katmanı}\label{subsubsec:tasima_katmani}
-\tab İnternette IP üzerinde kullanılan 2 tane 4. katman protokolü vardır.
+İnternette IP üzerinde kullanılan 2 tane 4. katman protokolü vardır.
 Bunlar \textcolor{red}{\textbf{TCP}} ve \textcolor{red}{\textbf{UDP}} dir.
 Bu katman uygulama programları için seri iletişim kanalları kuran katmandır.
 Bu kanallar port adı verilen servis numaralarıyla kurulur.
