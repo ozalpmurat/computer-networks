@@ -1,29 +1,63 @@
 \section{IP YÖNLENDİRME}
 
 Ip'nın yönlendirilebilir olmasi protokolün  en güçlü özelliği çok sayıda iletişim protokolu mevcut olmasına rağmen IP'nin yönlendirilebilir esnek yapısı internetin temel dili olmasını sağlamıştır.Yönlednirme işlemini "Yönlendirici(Router) "yapar.
-\textbf{Yönlendirme Tablosunda;}
-*Kaynak \\
-*Hedef(Ip ve Maske) \\
-*Ağ Geçidi\\
-*Ara Birim(Interface)\\
-*Ölçüt(Metrik)\\
-\subsection{1-STATİK YÖNLENDİRME}
-Ağ yöneticisi tarafından elle sabit olarak yazılır.Genellikle yönlendiricisi ve yönlendirme işlemi çok fazla olmayan ağlarda kullanılır.Yönlendirme tablolarının güncellemesi ağdaki fiziksel değişikliklere göre yeniden elle yapılmalıdır.
-\subsection{2-DİNAMİK YÖNLENDİRME}
-Yönlendirme algoritmaları  tarafından hesaplanarak bulunur.Ağ yöneticisi tarafından önceden bazı filtreler ve tanımlamalar yapılmalıdır.Ağda değişiklik oldu
+\textbf{Yönlendirme Tablosunda}\\
+\begin{enumerate}[label=\alph*)] 
+   \item Kaynak
+   \item Hedef(Ip ve Maske)
+   \item Ağ Geçidi
+   \item Ara Birim(Interface)
+   \item Ölçüt(Metrik)
+\end{enumerate}
 
+   ibrahim  resim ekleyecek
+\subsection{STATİK YÖNLENDİRME}
+Ağ yöneticisi tarafından elle sabit olarak yazılır.Genellikle yönlendiricisi ve yönlendirme işlemi çok fazla olmayan ağlarda kullanılır.Yönlendirme tablolarının güncellemesi ağdaki fiziksel değişikliklere göre yeniden elle yapılmalıdır.\\
+ibrahim
+\subsection{DİNAMİK YÖNLENDİRME}
+Yönlendirme algoritmaları  tarafından hesaplanarak bulunur.Ağ yöneticisi tarafından önceden bazı filtreler ve tanımlamalar yapılmalıdır.Ağda değişiklik olduğundan yollar otamatik olarak düzeltilir.En yaygın yönlendirme algoritmadir.\\
+ibrahim
 
+şekildeki ağın sağlıklı çalışabılmesi için  ..... sağlanmalıdır\\
+ibrahim
+\begin{enumerate}
+   \item C'nin E1 bacağı ile A aynı ağda olmalıdır.
+   \item  C'nin E2 bacağı ile B aynı ağda olmalıdır.
+   \item  A'nin ağ gecıdı C'NIN E1 bacağındakı IP olmadır.
+   \item  B'nın ağ gecidi C'nın E2 bacağındakı IP olmalıdır.
+   \item C'ye IP yönlendirme komutu verilmelidir.
+\end{enumerate}
 
+Yönlendirme  tablosunda  birbirini kapsayan kurallar var ise bunlar küçükten büyüğe sira ie değerlendirilir.\\
 
+ibrahim resim ekleyecek
 
+örnek trafik 10.0.0.5 IP'yi google götürmek üzere /26 kulanır . Gerçi hepsini kapsıyor ondan en küçüğün kabul eder . 10.0.0.199 google göstermek için /24 kullanır.\\
 
+ibrahim  ekleyecek \\
+\begin{center}
+ \underline{Yönlendirme Tablosu}
+\end{center}
+\begin{table}[h]
+   \centering
+   
+   \begin{tabular}{llll}
+   A $\rightarrow$ B & 10.0.1.0/24 & 10.0.2.0/24 & E2\\
+   B $\rightarrow$ A & 10.0.2.0/24 & 10.0.1.0/24 & E1\\
+   (A+B)    $\rightarrow$  & 0.0.0.0/0 & 0.0.0.0/0 & E3
+  \end{tabular}
+  \caption{}    
+\end{table}
 
+\textcolor{red}{NOT : } Yönlendiriciler de kendisine doğrudan bağlıdan (directly connecte) ağlar için genellikle yönlendirme  çünkü doğrudan bağlı olan bütün ağlar tanırlar.
 
-
-
-
-
-
-
-
-2ni
+\begin{table}[h]
+   \centering
+   \begin{tabular}{lll}
+   \textcolor{red}{\underline{Directly Connected}}&   
+   & \textcolor{red}{\underline{Eklenmesi Gerekenler}}\\
+   A$\rightarrow$ 1,2 && A$\rightarrow$ 3,5,b \} 3 satır kural eklemesi gerekiyor\\
+   B$\rightarrow$ 2,3,4 && A$\rightarrow$ 1,5,b \} 3 satır\\
+   c$\rightarrow$ 1,2 &&A$\rightarrow$ 1,3 \} 2 satır \\
+  \end{tabular}
+\end{table}

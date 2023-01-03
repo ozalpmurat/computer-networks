@@ -1,19 +1,33 @@
 \documentclass{BUP}
-\usepackage[turkish]{babel} %Türkçe bölüm isimleri
-\usepackage[utf8]{inputenc} %Türkçe karakterler
-\usepackage[T1]{fontenc} %Türkçe heceleme
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\tab[1][1cm]{\hspace*{#1}} %% \tab komutu bir 1 cm boşluk bırakması sağlar.
 \begin{document}
 \shorthandoff{=}
+\setlength{\headheight}{16pt} % "En az 16 olmalı" diye uyarı vermişti.
 %Bölümler----------------------------------
+
+% KAPAK
 \include{diskapak}
+
+% Özel Sayfalar
 \pagenumbering{roman}
 \setcounter{page}{2}
-\include{icindekiler}
-\include{sekillistesi}
-\include{tablolistesi}
+\hypertarget{capa-icindekiler}{}
+\include{Bolum00-icindekiler}
+\include{Bolum00-sekillistesi}
+\include{Bolum00-tablolistesi}
+\include{Bolum00-tesekkur}
+
+% Normal sayfaların ayarları:
 \pagenumbering{arabic}
-\setcounter{page}{1}
+\setcounter{page}{1},
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt} % Footer - çizgi
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}} % Footer - Sayfa numarası
+\fancyfoot[L]{\hyperlink{capa-icindekiler}{Link: İçindekiler}} % Footer - İçindekiler linki
+\setlength{\parindent}{20pt} % Paragraf başı girintisi ayarı
+
+% Normal sayfalar:
 \include{Bolum00-giris}
 \include{bolum1}
 \include{bolum2}
@@ -21,9 +35,9 @@
 \include{bolum4}
 \include{bolum5}
 \include{bolum6}
-\include{sonuclar}
-\include{ekler}
-\include{kaynaklar}
+\include{Bolum99-sonuclar}
+\include{Bolum99-ekler}
+\include{Bolum99-kaynaklar}
 \shorthandon{=}
 \end{document}
 %

@@ -13,17 +13,18 @@
 %\renewcommand\familydefault{\sfdefault}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{tikz}
-\RequirePackage[left=4cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\RequirePackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amssymb,amsmath,amsthm}
 \RequirePackage{graphics,graphicx}
+\RequirePackage{enumitem} %% alfabetik numaralandırmayı kullanmamızı sağlar
 \RequirePackage{float}
 \RequirePackage{multirow}
 \RequirePackage{setspace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\baselinestretch}{1.5}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
+\setlength{\parskip}{0pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \addto\captionsturkish{\renewcommand\contentsname{İÇİNDEKİLER}}
 \RequirePackage{eso-pic}
@@ -34,9 +35,13 @@
 {\includegraphics[height=297mm,width=210mm]{filigran}}}}
 \RequirePackage{tocloft}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{totpages}
+\usepackage{lastpage} % Toplam sayfa sayısı için
+\usepackage{fancyhdr} % Toplam sayfa sayısı için
+%\RequirePackage{totpages}
 \RequirePackage{verbatim}
 \flushbottom
 \RequirePackage[unicode, linktoc=all, hidelinks, breaklinks]{hyperref}
+\usepackage{indentfirst} % Paragrafların ilk satırı girintili olsun
+\usepackage{hyperref} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
