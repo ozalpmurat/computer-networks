@@ -1,4 +1,5 @@
-\section{Bilgisayar Ağları Modelleme}
+\section{BİLGİSAYAR AĞLARI MODELLEME}
+Bu başlıkta simülatör ve emülatör kavramları açıklanmaya çalışılıp örnek uygulamalar verilecektir.
 
 \subsection{Simülatör \& Emülatör}
 
@@ -21,7 +22,7 @@ Emülatör uygulamalarında, \textit{-simülatörlerden farklı olarak-} gerçek
 \subsubsection{Cisco Packet Tracer}
 Cisco firması tarafından geliştirilmektedir. Cisco'nun Networking Academy adı altında vermiş olduğu eğitimlerde katılımcılara verilmektedir. Bunun haricinde satışı bulunmamaktadır. Simülatör tarzında bir uygulamadır.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/SimulatorCiscoPT.png}
     \caption{Cisco Packet Tracer arayüzü. Sol tarafta "mantıksal", sağ tarafta "fiziksel" görünüm}
@@ -33,7 +34,7 @@ Kataloğunda Sadece Cisco firmasına ait ürünler bulunmaktadır. Yönlendirici
 \subsubsection{GNS3 (Graphical Network Simulator 3)}
 Cisco'nun kendi cihazları için tasarladığı IOS isimli işletim sistemlerini kullanır. Bu IOS'lerden GNS3 içerisine en az 1 tane dahil edilmelidir. Bu IOS'leri elde etmek için yasal bir yol malesef bulunmamaktadır. Cisco müşterisi olanlar WEB üzerinden indirebilmektedir. Bunun haricinde satışı bulunmamaktadır. VirtualBox PC'leri bunun içine dahil edilebilmektedir. Gerçek yönlendirici imajları ve gerçek sanal bilgisayarlar kullandığından oldukça gerçekçi bir çalışma ortamı sağlamaktadır. Cisco sertifikasyon sınavlarına hazırlananlar için de kullanışlıdır. Programın önemli bir özelliği de sanal ağda kullanılan sanal makinaların Host-PC (fiziksel bilgisayar) üzerinden internet'e çıkabilmesidir.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/SimulatorGNS3.png}
     \caption{GNS3 arayüzü içindeki yönlendiricinin konsolu}
@@ -45,7 +46,7 @@ Linux ve BSD üzerinde çalışıyor. Windows üzerinde sanal bilgisayarda çal�
 
 Sanal ağı, gerçek ağa bağlayarak internet'e çıkarma özelliği bulunmaktadır. Büyük projelerde kullanmak üzere dağıtık hesaplama desteği de bulunmaktadır. Örneğin; elinizde 3 tane fiziksel PC varsa ve 200 tane node'dan oluşan sanal bir ağ kullanmak istiyorsanız, node'ları iki fiziksel PC'ye paylaştırabilir, 1 PC'yi de GUI amacı ile kullanabilirsiniz. Phyton ile script yazılabildiğini de belirtelim.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/SimulatorCORE.png}
     \caption{CORE ekran görüntüsü}
@@ -55,8 +56,7 @@ Sanal ağı, gerçek ağa bağlayarak internet'e çıkarma özelliği bulunmakta
 \subsubsection{Diğerleri}
 
 \begin{itemize}
-\item {\bfseries
-NS2:\textmd{ }\url{http://www.isi.edu/nsnam/ns/}\textmd{ }}
+\item \textbf{NS2:} \url{http://www.isi.edu/nsnam/ns/}
 \item \textbf{NS3:} \url{https://www.nsnam.org/} (NS2'nin devamı olarak yapılmasına rağmen geriye doğru uyumluluğu
 olmadığından ayrı bir yazılım olarak değerlendiriliyor)
 \end{itemize}
