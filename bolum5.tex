@@ -1,7 +1,8 @@
 \section{IP YÖNLENDİRME}
 
-Ip'nın yönlendirilebilir olmasi protokolün  en güçlü özelliği çok sayıda iletişim protokolu mevcut olmasına rağmen IP'nin yönlendirilebilir esnek yapısı internetin temel dili olmasını sağlamıştır.Yönlednirme işlemini "Yönlendirici(Router) "yapar.
-\textbf{Yönlendirme Tablosunda}\\
+IP'nin yönlendirilebilir olması protokolün  en güçlü özelliğidir. Çok sayıda iletişim protokolü mevcut olmasına rağmen IP'nin yönlendirilebilir esnek yapısı internetin temel dili olmasını sağlamıştır. Yönlendirme işlemini "Yönlendirici(Router)" yapar.
+
+\textbf{Yönlendirme Tablosunda}
 \begin{enumerate}[label=\alph*)] 
    \item Kaynak
    \item Hedef(Ip ve Maske)
@@ -12,78 +13,83 @@ Ip'nın yönlendirilebilir olmasi protokolün  en güçlü özelliği çok sayı
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=17cm]{images/yonlendirme.png}
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
     \caption{Yönlendirme Tablosu}
-    \label{fig:bandwidth_example}
+    \label{fig:YonlendirmeTablosu}
 \end{figure}
 
 \subsection{STATİK YÖNLENDİRME}
-Ağ yöneticisi tarafından elle sabit olarak yazılır.Genellikle yönlendiricisi ve yönlendirme işlemi çok fazla olmayan ağlarda kullanılır.Yönlendirme tablolarının güncellemesi ağdaki fiziksel değişikliklere göre yeniden elle yapılmalıdır.\\
+Ağ yöneticisi tarafından elle sabit olarak yazılır.Genellikle yönlendiricisi ve yönlendirme işlemi çok fazla olmayan ağlarda kullanılır.Yönlendirme tablolarının güncellemesi ağdaki fiziksel değişikliklere göre yeniden elle yapılmalıdır.
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=17cm]{images/istatik.png}
-    \caption{Istatik Yönlendirme}
-    \label{fig:bandwidth_example}
-\end{figure}
-\subsection{DİNAMİK YÖNLENDİRME}
-Yönlendirme algoritmaları  tarafından hesaplanarak bulunur.Ağ yöneticisi tarafından önceden bazı filtreler ve tanımlamalar yapılmalıdır.Ağda değişiklik olduğundan yollar otamatik olarak düzeltilir.En yaygın yönlendirme algoritmadir.\\
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=17cm]{images/dinamik.png}
-    \caption{Dinamik Yönlendirme}
-    \label{fig:bandwidth_example}
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
+    \caption{Statik Yönlendirme}
+    \label{fig:StatikYonlendirme}
 \end{figure}
 
-şekildeki ağın sağlıklı çalışabılmesi için  ..... sağlanmalıdır\\
+\subsection{DİNAMİK YÖNLENDİRME}
+Yönlendirme algoritmaları  tarafından hesaplanarak bulunur. Ağ yöneticisi tarafından önceden bazı filtreler ve tanımlamalar yapılmalıdır. Ağda değişiklik olduğunda yollar otomatik olarak düzeltilir. En yaygın yönlendirme algoritmadır.
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=17cm]{images/dinamik1.png}
-    \caption{Dinamik Yönlendirme}
-    \label{fig:bandwidth_example}
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
+    \caption{Dinamik Yönlendirme1}
+    \label{fig:DinamikYonlendirme1}
 \end{figure}
+
+şekildeki ağın sağlıklı çalışabilmesi için  ..... sağlanmalıdır
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
+    \caption{Dinamik Yönlendirme2}
+    \label{fig:DinamikYonlendirme2}
+\end{figure}
+
 \begin{enumerate}
    \item C'nin E1 bacağı ile A aynı ağda olmalıdır.
    \item  C'nin E2 bacağı ile B aynı ağda olmalıdır.
-   \item  A'nin ağ gecıdı C'NIN E1 bacağındakı IP olmadır.
-   \item  B'nın ağ gecidi C'nın E2 bacağındakı IP olmalıdır.
+   \item  A'nin ağ geçidi C'nin E1 bacağındaki IP olmadır.
+   \item  B'nın ağ geçidi C'nin E2 bacağındaki IP olmalıdır.
    \item C'ye IP yönlendirme komutu verilmelidir.
 \end{enumerate}
 
-Yönlendirme  tablosunda  birbirini kapsayan kurallar var ise bunlar küçükten büyüğe sira ie değerlendirilir.\\
+Yönlendirme tablosunda birbirini kapsayan kurallar var ise bunlar küçükten büyüğe sıra ie değerlendirilir.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=17cm]{images/ip.png}
-    \caption{Dinamik Yönlendirme}
-    \label{fig:bandwidth_example}
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
+    \caption{Dinamik Yönlendirme3}
+    \label{fig:DinamikYonlendirme3}
 \end{figure}
 
-örnek trafik 10.0.0.5 IP'yi google götürmek üzere /26 kulanır . Gerçi hepsini kapsıyor ondan en küçüğün kabul eder . 10.0.0.199 google göstermek için /24 kullanır.\\
+Örnek trafik 10.0.0.5 IP'yi google götürmek üzere /26 kullanır. Gerçi hepsini kapsıyor ondan en küçüğün kabul eder. 10.0.0.199 google göstermek için /24 kullanır.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=17cm]{images/switch.png}
-    \caption{Dinamik Yönlendirme}
-    \label{fig:bandwidth_example}
+    \includegraphics[width=5cm]{images/BurayaGorselGelecek.png}
+    \caption{Dinamik Yönlendirme4}
+    \label{fig:DinamikYonlendirme4}
 \end{figure}
 
 \begin{center}
  \underline{Yönlendirme Tablosu}
 \end{center}
-\begin{table}[h]
-   \centering
-   
+
+\begin{table}[ht]
+   \centering  
    \begin{tabular}{llll}
    A $\rightarrow$ B & 10.0.1.0/24 & 10.0.2.0/24 & E2\\
    B $\rightarrow$ A & 10.0.2.0/24 & 10.0.1.0/24 & E1\\
    (A+B)    $\rightarrow$  & 0.0.0.0/0 & 0.0.0.0/0 & E3
   \end{tabular}
-  \caption{}    
+  \caption{Tablo XXX}    
 \end{table}
 
-\textcolor{red}{NOT : } Yönlendiriciler de kendisine doğrudan bağlıdan (directly connecte) ağlar için genellikle yönlendirme  çünkü doğrudan bağlı olan bütün ağlar tanırlar.
+\textcolor{red}{NOT: } Yönlendiriciler de kendisine doğrudan bağlıdan (directly connected) ağlar için genellikle yönlendirme  çünkü doğrudan bağlı olan bütün ağlar tanırlar.
 
-\begin{table}[h]
+\begin{table}[ht]
    \centering
    \begin{tabular}{lll}
    \textcolor{red}{\underline{Directly Connected}}&   
@@ -92,4 +98,5 @@ Yönlendirme  tablosunda  birbirini kapsayan kurallar var ise bunlar küçükten
    B$\rightarrow$ 2,3,4 && A$\rightarrow$ 1,5,b \} 3 satır\\
    c$\rightarrow$ 1,2 &&A$\rightarrow$ 1,3 \} 2 satır \\
   \end{tabular}
+  \caption{Tablo XXX}    
 \end{table}
