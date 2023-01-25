@@ -1,11 +1,11 @@
 # Bilgisayar Ağları
-Bu ders notu Bilgisayar Mühendislik okunayan ögrencileri için hazırlanmıştır.
+Bu ders notu Bilgisayar Mühendisliği ögrencileri için hazırlanmıştır.
 
 ## Genel Bilgi
 
 Bu belge, LaTex metin düzenleyicisi kullanılarak yazılmıştır. Eğer daha fazla bilgi edinmek istiyorsanız, lütfen [**LaTex**](https://www.latex-project.org/)'in resmi web sayfasını ziyaret edin.
 
-## Nasıl katkıda bulunur?
+## Nasıl katkıda bulunulur?
 - Önemli değişiklikler için, lütfen öncelikle bir konu açın ve ne değiştirmek istediğinizi tartışalım.
 - Ondan sonra, makinenizde LaTex programının yüklü olduğundan emin olmanız gerekmektedir.
 
