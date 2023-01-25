@@ -12,9 +12,9 @@ Bu belge, LaTex metin düzenleyicisi kullanılarak yazılmıştır. Eğer daha f
 ### Belgeyi indir
 Aşağıdaki komut satırını kullanarak belgeyi indirebilirsiniz, [**git bash**](https://git-scm.com/downloads) kullanmanız önerilir.
 ```bash
- git clone https://github.com/ikhalilatteib/computer-networks.git
+ git clone https://github.com/ozalpmurat/computer-networks.git
 ```
-> Bu bölüm yalnızca katkıda bulunmak isteyenleri ilgilendirir, isteyenler için belge pdf formatında mevcuttur. Buradan ulaşabilirsiniz [**0BMproje.pdf**](https://github.com/ikhalilatteib/computer-networks/blob/master/0BMproje.pdf)
+> Bu bölüm yalnızca katkıda bulunmak isteyenleri ilgilendirir, isteyenler için belge pdf formatında mevcuttur. Buradan ulaşabilirsiniz [**0BMproje.pdf**](https://github.com/ozalpmurat/computer-networks/blob/master/0BMproje.pdf)
 
 ### Yeni bir Branch oluşturun
 İndirme işlemini tamamladıktan sonra, klasöre girin ve aşağıdaki komut satırlarını takip ederek yeni bir branch oluşturun.
